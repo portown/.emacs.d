@@ -1,0 +1,8 @@
+/session.*
+/init.el
+/settings/.erc.el
+/settings/.twitter.el
+/tramp
+/elisp/*
+/.org-id-locations
+*.elc
