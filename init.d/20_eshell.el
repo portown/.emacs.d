@@ -1,4 +1,4 @@
-;;; eshell.el
+;;; 20_eshell.el
 ;;; Copyright (C) 2010 YASUDA Jiro
 
 ;;; Author: YASUDA Jiro
@@ -15,15 +15,15 @@
 (setq eshell-save-history-on-exit nil)
 
 
-;; プロンプトにカレントディレクトリを表示しない
+;; プロンプトの設定
 (setq eshell-prompt-function
-      (lambda ()
-        (concat
-         ;; (eshell/pwd)                   ; カレントディレクトリ
-         (if (= (user-uid) 0) "#" "$")
-         " ")))
+      #'(lambda ()
+          (concat
+           ;; (eshell/pwd)                   ; カレントディレクトリ
+           (if (= (user-uid) 0) "#" "$")
+           " ")))
 
-;; プロンプトを識別させるための正規表現
+;; プロンプトを認識する正規表現の設定
 (setq eshell-prompt-regexp "^[#$] ")
 
 

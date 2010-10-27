@@ -8,9 +8,12 @@
 (autoload 'flex-mode "flex-mode" "flex" t)
 
 
-(setq auto-mode-alist (append (list
-                               '("\\.l$" . flex-mode))
-                              auto-mode-alist))
+(setq auto-mode-alist
+      (append
+       (list
+        '("\\.l\\'" . flex-mode)
+        )
+       auto-mode-alist))
 
 
 

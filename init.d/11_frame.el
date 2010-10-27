@@ -28,13 +28,11 @@
 
   ;; 初期フレームの設定
   (setq initial-frame-alist
-        (append (list
-                 '(title . "Initial")
-                 )
-                default-frame-alist))
-
-  ;; ;; フレームのタイトルをバッファ名に設定
-  ;; (setq frame-title-format "%b")
+        (append
+         (list
+          '(title . "Initial")
+          )
+         default-frame-alist))
 
   ;; ツールバーとメニューバーは消しておく
   (tool-bar-mode -1)

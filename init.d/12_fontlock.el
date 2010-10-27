@@ -1,4 +1,4 @@
-;;; fontlock.el
+;;; 12_fontlock.el
 ;;; Copyright (C) 2010 YASUDA Jiro
 
 ;;; Author: YASUDA Jiro

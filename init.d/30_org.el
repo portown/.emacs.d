@@ -9,20 +9,22 @@
 
 
 ;; 関連付け
-(setq auto-mode-alist (append (list
-                               '("\\.org\\'" . org-mode)
-                               '("TODO" . org-mode)
-                               )
-                              auto-mode-alist))
+(setq auto-mode-alist
+      (append
+       (list
+        '("\\.org\\'" . org-mode)
+        '("TODO" . org-mode)
+        )
+       auto-mode-alist))
 
 ;; フック
 (add-hook 'org-mode-hook
-          (lambda ()
-            (define-key org-mode-map [?\C-,]
-              (lambda ()
-                (interactive)
-                (set-frame-selected-window nil (previous-window))))
-            ))
+          #'(lambda ()
+              (define-key org-mode-map [?\C-,]
+                #'(lambda ()
+                    (interactive)
+                    (set-frame-selected-window nil (previous-window))))
+              ))
 
 
 

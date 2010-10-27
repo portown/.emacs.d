@@ -2,7 +2,7 @@
 
 
 ;; 改行と同時にインデントする
-(define-key global-map "\C-m" 'newline-and-indent)
+(define-key global-map "\C-m" #'newline-and-indent)
 
 ;; C-hでバックスペース
 (global-set-key "\C-h" [backspace])
@@ -36,22 +36,20 @@ With argument ARG, do this that many times."
                   (interactive)
                   (set-frame-selected-window nil (next-window))))
 
-;; ;; ウィンドウセットの変更
-;; (global-set-key "\C-cp" 'win-prev-window)
-;; (global-set-key "\C-cn" 'win-next-window)
-
 ;; SKK
-(global-set-key "\C-\\" 'skk-mode)
+(global-set-key "\C-\\" #'skk-mode)
 
 ;; コンパイル
-(global-set-key "\C-cm" 'compile)
+(global-set-key "\C-cm" #'compile)
 
 ;; magit-statusを起動
-(global-set-key "\C-cg" 'magit-status)
+(global-set-key "\C-cg" #'magit-status)
 
-;; sdicの設定
-(global-set-key "\C-cw" 'sdic-describe-word)
-(global-set-key "\C-cW" 'sdic-describe-word-at-point)
+;; sdicの起動
+(global-set-key "\C-cw" #'sdic-describe-word)
+(global-set-key "\C-cW" #'sdic-describe-word-at-point)
+
+
 
 
 

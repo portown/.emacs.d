@@ -29,11 +29,10 @@
               (define-key twittering-mode-map "\C-cf" 'twittering-favorite)
               ))
 
-;; アクセストークンを保存する
+;; マスターパスワードを使用する
 (setq twittering-use-master-password t)
 
-;; ;; 個人設定
-;; (load "~/.emacs.d/.twitter.el")
+
 
 
 

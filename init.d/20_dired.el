@@ -22,10 +22,10 @@
 
 ;; キー設定
 (add-hook 'dired-mode-hook
-          (lambda ()
-            ;; dired バッファを直接編集する
-            (define-key dired-mode-map "\C-cr" 'wdired-change-to-wdired-mode)
-            ))
+          #'(lambda ()
+              ;; dired バッファを直接編集する
+              (define-key dired-mode-map "\C-cr" 'wdired-change-to-wdired-mode)
+              ))
 
 
 ;; -----------------------------------------------------------------------------

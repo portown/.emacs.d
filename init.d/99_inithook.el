@@ -6,19 +6,23 @@
 
 
 (add-hook 'after-init-hook
-          (lambda ()
-            (let* ((initial-frame (selected-frame))
-                   (main-frame (make-frame (append (list '(title . "Main") '(visibility . t)) default-frame-alist)))
-                   (twitter-frame (make-frame (append (list '(title . "Twitter") '(left . 2490) '(width . 67) '(visibility . t)) default-frame-alist)))
-                   )
+          #'(lambda ()
+              ;; フレーム分割
+              (let* ((initial-frame (selected-frame))
+                     ;; メインのフレーム
+                     (main-frame (make-frame '((title . "Main") (visibility . t))))
 
-              (delete-frame initial-frame)
+                     ;; Twitter用フレーム
+                     (twitter-frame (make-frame '((title . "Twitter") (left . 2490) (width . 67) (visibility . t))))
+                     )
 
-              (select-frame twitter-frame)
-              (twit)
+                ;; 元のフレームを消す
+                (delete-frame initial-frame)
 
-              (select-frame main-frame)
-              )))
+                (select-frame twitter-frame)
+                (twit)
+
+                )))
 
 
 

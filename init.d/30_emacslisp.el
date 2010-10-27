@@ -7,9 +7,9 @@
 
 ;; Emacs Lispのフック設定
 (add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (define-key emacs-lisp-mode-map "\C-c\C-c" 'comment-region)
-            ))
+          #'(lambda ()
+              (define-key emacs-lisp-mode-map "\C-c\C-c" 'comment-region)
+              ))
 
 
 

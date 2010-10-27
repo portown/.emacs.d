@@ -25,6 +25,7 @@
       'mew-send-hook))
 
 
+(setq mew-use-master-passwd t)
 
 
 

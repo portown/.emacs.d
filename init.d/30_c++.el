@@ -87,21 +87,17 @@
             (c-add-style "jiros-c-style" jiros-c-style t)
 
             ;; エレクトリック機能を設定
-            (c-toggle-auto-newline)     ; 改行が自動挿入される
-            (c-toggle-hungry-state)     ; 空白が一気に削除される
-
-            ;; キー設定
-            ;; (define-key c-mode-base-map "\C-cc" 'comment-region)
-            ;; (define-key c-mode-base-map "\C-cu" 'uncomment-region)
+            (c-toggle-auto-newline 1)   ; 改行が自動挿入される
+            (c-toggle-hungry-state 1)   ; 空白が一気に削除される
             ))
 
 ;; 拡張子の関連付け
 (setq auto-mode-alist
-      (append (list
-               '("\\.cxx$" . c++-mode)
-               '("\\.hxx$" . c++-mode)
-               )
-              auto-mode-alist))
+      (append
+       (list
+        '("\\.cxx\\'" . c++-mode)
+        '("\\.hxx\\'" . c++-mode))
+       auto-mode-alist))
 
 
 

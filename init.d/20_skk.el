@@ -70,7 +70,7 @@
 ;; SKK起動時のフック
 (add-hook 'skk-mode-hook
           #'(lambda ()
-              ;; (define-key skk-j-mode-map "\C-Q" 'skk-jisx0201-mode)
+              (define-key skk-j-mode-map "\C-Q" 'skk-jisx0201-mode)
               ))
 
 ;; isearchでSKKを使えるように
@@ -116,6 +116,7 @@
 ;; 句読点リストの設定
 (setq-default skk-kutoten-type 'jp)
 
+;; 変換候補選択キーの設定
 (setq skk-henkan-show-candidates-keys '(?a ?o ?e ?u ?h ?t ?n))
 
 ;; ;; ACTの使用
@@ -125,13 +126,19 @@
 (setq skk-use-kana-keyboard t)
 (setq skk-kanagaki-keyboard-type 'nicola-dvorak)
 
+;; モードラインに表示される文字
 (setq skk-nicola-hiragana-mode-string "い")
 (setq skk-nicola-katakana-mode-string "イ")
 
+;; 親指シフト認識時間
 (setq skk-nicola-interval 0.08)
 
+;; 左親指キー
 (setq skk-nicola-lshift-keys '([muhenkan]))
+
+;; 右親指キー
 (setq skk-nicola-rshift-keys '([henkan]))
+
 
 
 
