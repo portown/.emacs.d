@@ -4,28 +4,8 @@
 ;; 言語設定
 (set-language-environment "Japanese")
 
-;; 起動環境の判定
-(load "~/.emacs.d/env")
-
-
-;; -------------------------------------------------------------
-;; オプション
-;; -------------------------------------------------------------
-
-(setq user-full-name "YASUDA Jiro")
-(setq user-mail-address "jiros@softlab.cs.tsukuba.ac.jp")
-
-(setq jiros-setting-elisp-directory
-      '("~/.emacs.d/elisp")
-      )
-
-(setq jiros-setting-use-skk-server t)
-
-(setq jiros-setting-font-family "MigMix 1M")
-(setq jiros-setting-font-size 11)
-
-(setq jiros-setting-frame-width 99)
-(setq jiros-setting-frame-height 69)
+;; 設定の読み込み
+(load "~/.emacs.d/settings")
 
 
 ;; -------------------------------------------------------------
@@ -38,10 +18,6 @@
 ;;   (setq cygwin-mount-cygwin-bin-directory msys-path)
 ;;   (setq cygwin-mount-program "msysmnt.exe")
 ;;   (cygwin-mount-activate))
-
-
-;; Emacs Lisp読み込みパスを追加
-(load "~/.emacs.d/addpath")
 
 
 ;; -------------------------------------------------------------
