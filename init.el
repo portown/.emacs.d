@@ -45,15 +45,6 @@
 ;; 		))
 
 
-;; ;; -------------------------------------------------------------
-;; ;; Opera設定
-;; ;; -------------------------------------------------------------
-
-;; (setq browse-url-firefox-program "opera")
-;; (setq browse-url-firefox-new-window-is-tab t)
-;; (setq browse-url-new-window-flag t)
-(setq browse-url-browser-function 'browse-url-generic)
-(setq browse-url-generic-program "/opt/google/chrome/google-chrome")
 
 
 
