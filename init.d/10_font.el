@@ -6,6 +6,7 @@
 
 
 (defconst jiros-setting-font-string (format "%s-%d" jiros-setting-font-family jiros-setting-font-size))
+(set-frame-font jiros-setting-font-string)
 
 
 
