@@ -50,6 +50,9 @@
 (load "~/.emacs.d/addpath")
 
 
+(load "~/.emacs.d/settings/tramp")
+
+
 
 
 
