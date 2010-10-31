@@ -49,6 +49,9 @@
 ;; スクロールバーを表示しない
 (set-scroll-bar-mode nil)
 
+;; キルリングとクリップボードを同一化する
+(setq x-select-enable-clipboard t)
+
 
 
 ;; EOF
