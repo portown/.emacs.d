@@ -19,12 +19,20 @@
 (setq eshell-prompt-function
       #'(lambda ()
           (concat
+           (getenv "USER") "@" (system-name)
            ;; (eshell/pwd)                   ; カレントディレクトリ
            (if (= (user-uid) 0) "#" "$")
            " ")))
 
 ;; プロンプトを認識する正規表現の設定
-(setq eshell-prompt-regexp "^[#$] ")
+(setq eshell-prompt-regexp "^[^@ #$]+@[^ #$]+[#$] ")
+
+(eval-after-load "em-term"
+  '(setq eshell-visual-commands
+         (append
+          '("ssh"
+            )
+          eshell-visual-commands)))
 
 
 
