@@ -8,11 +8,11 @@
 (require 'epa-file)
 
 
-(defun jiros-eval-gpg-file (FILE)
-  "暗号化されたEmacs Lispファイルを評価する"
-  (with-temp-buffer
-    (epa-file-insert-file-contents FILE)
-    (eval-buffer)))
+;; (defun jiros-eval-gpg-file (FILE)
+;;   "暗号化されたEmacs Lispファイルを評価する"
+;;   (with-temp-buffer
+;;     (epa-file-insert-file-contents FILE)
+;;     (eval-buffer)))
 
 
 

@@ -8,13 +8,16 @@
 ;; 起動環境の判定
 (load "~/.emacs.d/env")
 
+;; デバッグモード
+(setq debug-on-error nil)
+
 
 ;; -------------------------------------------------------------
 ;; オプション
 ;; -------------------------------------------------------------
 
 (setq user-full-name "YASUDA Jiro")
-(setq user-mail-address "jiros@softlab.cs.tsukuba.ac.jp")
+(setq user-mail-address "portown09@gmail.com")
 
 (setq jiros-setting-elisp-directory
       '("~/.emacs.d/elisp")
@@ -28,11 +31,28 @@
 (setq jiros-setting-frame-width 99)
 (setq jiros-setting-frame-height 69)
 
+(setq jiros-setting-init-frame-alist-list
+      `(((frame-alist . ((title . "Main")
+                         (visibility . t)
+                         ))
+         )
+        ((frame-alist . ((title . "Twitter")
+                         (left . 2490)
+                         (width . 67)
+                         (visibility . t)
+                         ))
+         (after-hook . ,(lambda () (twit)))
+         )
+        ))
+
 
 
 
 ;; Emacs Lisp読み込みパスを追加
 (load "~/.emacs.d/addpath")
+
+
+(load "~/.emacs.d/settings/tramp")
 
 
 

@@ -13,7 +13,7 @@
 ;; -------------------------------------------------------------
 
 ;; ;; MSYSのドライブをマウント
-;; (when yas-on-Windows
+;; (when jiros-on-Windows
 ;;   (require 'cygwin-mount)
 ;;   (setq cygwin-mount-cygwin-bin-directory msys-path)
 ;;   (setq cygwin-mount-program "msysmnt.exe")

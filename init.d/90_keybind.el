@@ -2,7 +2,7 @@
 
 
 ;; 改行と同時にインデントする
-(define-key global-map "\C-m" #'newline-and-indent)
+(global-set-key "\C-m" #'newline-and-indent)
 
 ;; C-hでバックスペース
 (global-set-key "\C-h" [backspace])
