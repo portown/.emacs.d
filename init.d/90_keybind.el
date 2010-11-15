@@ -49,6 +49,9 @@ With argument ARG, do this that many times."
 (global-set-key "\C-cw" #'sdic-describe-word)
 (global-set-key "\C-cW" #'sdic-describe-word-at-point)
 
+;; lookupの起動
+(global-set-key "\C-cl" #'lookup-pattern)
+
 
 
 

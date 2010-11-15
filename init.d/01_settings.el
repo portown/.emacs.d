@@ -25,9 +25,6 @@
 ;; 文字に色を付ける
 (global-font-lock-mode t)
 
-;; マニュアル
-(setq manual-program "man")
-
 ;; 対応するカッコに色を付ける
 (show-paren-mode t)
 
