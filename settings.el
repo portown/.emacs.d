@@ -26,10 +26,10 @@
 (setq jiros-setting-use-skk-server t)
 
 (setq jiros-setting-font-family "MigMix 1M")
-(setq jiros-setting-font-size 9)
+(setq jiros-setting-font-size 11)
 
-(setq jiros-setting-frame-width 114)
-(setq jiros-setting-frame-height 59)
+(setq jiros-setting-frame-width 99)
+(setq jiros-setting-frame-height 69)
 
 (setq jiros-setting-init-frame-alist-list
       `(((frame-alist . ((title . "Main")
@@ -37,6 +37,8 @@
                          ))
          )
         ((frame-alist . ((title . "Twitter")
+                         (left . 2490)
+                         (width . 67)
                          (visibility . t)
                          ))
          ;; (after-hook . ,(lambda () (twit)))
