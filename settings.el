@@ -39,9 +39,11 @@
         ((frame-alist . ((title . "Twitter")
                          (visibility . t)
                          ))
-         (after-hook . ,(lambda () (twit)))
+         ;; (after-hook . ,(lambda () (twit)))
          )
         ))
+
+;; (set-frame-cursor-color nil (frame-parameter nil 'cursor-color))
 
 
 
