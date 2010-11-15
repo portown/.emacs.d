@@ -41,9 +41,11 @@
                          (width . 67)
                          (visibility . t)
                          ))
-         (after-hook . ,(lambda () (twit)))
+         ;; (after-hook . ,(lambda () (twit)))
          )
         ))
+
+;; (set-frame-cursor-color nil (frame-parameter nil 'cursor-color))
 
 
 

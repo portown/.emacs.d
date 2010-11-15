@@ -26,8 +26,8 @@
 ;; SKKのメッセージを日本語で表示しない
 (setq skk-japanese-message-and-error nil)
 
-;; ;; SKKのチュートリアル
-;; (setq skk-tut-file "/usr/local/share/emacs/site-lisp/skk/SKK.tut")
+;; SKKのチュートリアル
+(setq skk-tut-file "/usr/share/skk/SKK.tut")
 
 ;; 動的補完を行う
 (setq skk-dcomp-activate t)
@@ -70,6 +70,7 @@
 ;; SKK起動時のフック
 (add-hook 'skk-mode-hook
           #'(lambda ()
+              (ccc-setup)
               (define-key skk-j-mode-map "\C-Q" 'skk-jisx0201-mode)
               ))
 
