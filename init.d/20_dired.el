@@ -18,6 +18,7 @@
         ("\\.tar\\.bz2\\'" "tar -xjf")
         ("\\.tar\\.lzma\\'" "tar --lzma -xf")
         ("\\.zip\\'" "unzip -q")
+        ("\\.lzh\\'" "lha -xq")
         ))
 
 ;; キー設定
