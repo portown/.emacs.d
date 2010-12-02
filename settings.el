@@ -24,8 +24,8 @@
 
 (setq jiros-setting-font-string "VL ゴシック-11")
 
-(setq jiros-setting-frame-width 99)
-(setq jiros-setting-frame-height 69)
+(setq jiros-setting-frame-width 114)
+(setq jiros-setting-frame-height 59)
 
 (setq jiros-setting-init-frame-alist-list
       `(((frame-alist . ((title . "Main")
@@ -33,8 +33,6 @@
                          ))
          )
         ((frame-alist . ((title . "Twitter")
-                         (left . 2490)
-                         (width . 67)
                          (visibility . t)
                          ))
          ;; (after-hook . ,(lambda () (twit)))
