@@ -35,12 +35,41 @@
 ;; 更新通知
 (add-hook 'twittering-new-tweets-hook
           #'(lambda ()
-              (let ((n twittering-new-tweets-count))
+              (let (;(n twittering-new-tweets-count)
+                    (statuses twittering-new-tweets-statuses))
                 (start-process "twittering-notify" nil "notify-send"
                                "-i" "/usr/share/pixmaps/gnome-emacs.png"
                                "New tweets"
-                               (format "You have %d new tweet%s"
-                                       n (if (> n 1) "s" ""))))))
+                               (let ((str "")
+                                     (stat (car statuses))
+                                     (rest (cdr statuses)))
+                                 (catch 'break
+                                   (concat
+                                    (dotimes (i 3 str)
+                                      (setq str (concat str
+                                                        (cdr (assq 'user-screen-name stat))
+                                                        ": "
+                                                        (let ((text (cdr (assq 'text stat))))
+                                                          (if (> (length text) 20)
+                                                              (concat (substring text 0 20) "...")
+                                                            text))))
+                                      (when (null rest)
+                                        (throw 'break str))
+                                      (setq str (concat str "\n")
+                                            stat (car rest)
+                                            rest (cdr rest)))
+                                    "...")))))))
+                                 ;; (mapconcat (lambda (stat)
+                                 ;;              (concat (cdr (assq 'user-screen-name stat))
+                                 ;;                      ": "
+                                 ;;                      (let ((text (cdr (assq 'text stat))))
+                                 ;;                        (if (> (length text) 20)
+                                 ;;                            (concat (substring text 0 20) "...")
+                                 ;;                          text))))
+                                 ;;            statuses
+                                 ;;            "\n")))))
+;                               (format "You have %d new tweet%s"
+;                                       n (if (> n 1) "s" ""))))))
 
 
 
