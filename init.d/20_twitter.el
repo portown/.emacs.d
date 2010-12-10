@@ -4,6 +4,16 @@
 (require 'twittering-mode)
 
 
+;; タイムライン更新間隔（秒）
+(defvar jiros-setting-twitter-interval 60)
+
+;; notify中に表示するツイートの最長文字数
+(defvar jiros-setting-twitter-notify-max-tweet-length 20)
+
+;; notify中に表示するツイートの最大数
+(defvar jiros-setting-twitter-notify-tweet-max 3)
+
+
 ;; oAuthで認証を行う
 (setq twittering-auth-method 'oauth)
 
@@ -14,7 +24,11 @@
 (setq twittering-retweet-format "RT @%s: %t")
 
 ;; 更新間隔(秒)
-(setq twittering-timer-interval 60)
+(setq twittering-timer-interval jiros-setting-twitter-interval)
+
+;; マスターパスワードを使用する
+(setq twittering-use-master-password t)
+
 
 ;; Twittering起動時フック
 (add-hook 'twittering-mode-hook
@@ -29,8 +43,6 @@
               (define-key twittering-mode-map "\C-cf" 'twittering-favorite)
               ))
 
-;; マスターパスワードを使用する
-(setq twittering-use-master-password t)
 
 ;; 更新通知
 (add-hook 'twittering-new-tweets-hook
@@ -45,12 +57,13 @@
                                              (concat (cdr (assq 'user-screen-name stat))
                                                      ": "
                                                      (let ((text (cdr (assq 'text stat))))
-                                                       (if (> (length text) 20)
-                                                           (concat (substring text 0 20) "...")
+                                                       (if (> (length text) jiros-setting-twitter-notify-max-tweet-length)
+                                                           (concat (substring text 0 jiros-setting-twitter-notify-max-tweet-length) "...")
                                                          text))))))
-                                 (if (< n 4)
+                                 (if (<= n jiros-setting-twitter-notify-tweet-max)
                                      (mapconcat func statuses "\n")
-                                   (concat (mapconcat func (butlast statuses (- n 3)) "\n") "\n...")))))))
+                                   (concat (mapconcat func (butlast statuses (- n jiros-setting-twitter-notify-tweet-max)) "\n")
+                                           "\n...")))))))
 
 
 

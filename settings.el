@@ -47,6 +47,8 @@
 
 ;; (set-frame-cursor-color nil (frame-parameter nil 'cursor-color))
 
+(setq jiros-setting-twitter-interval 40)
+
 
 
 
