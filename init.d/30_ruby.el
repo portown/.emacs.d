@@ -13,7 +13,8 @@
 (setq auto-mode-alist
       (append
        (list
-        '("\\.rb\\'" . ruby-mode))
+        '("\\.rb\\'" . ruby-mode)
+        '("Rakefile" . ruby-mode))
        auto-mode-alist))
 
 (add-hook 'ruby-mode-hook

@@ -87,6 +87,7 @@
         (("\\.el\\'" . "Emacs Lisp source")                  . ,(jiros-template-name "el"))
         (("\\.tex\\'" . "TeX file")                          . ,(jiros-template-name "tex"))
         (("\\.rb\\'" . "Ruby source")                        . ,(jiros-template-name "rb"))
+        (("\\`Rakefile\\'" . "Rake source")                  . ,(jiros-template-name "rb"))
         ))
 
 
