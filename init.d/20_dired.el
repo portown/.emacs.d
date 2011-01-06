@@ -4,6 +4,10 @@
 (require 'dired-x)
 (require 'wdired)
 
+(require 'ls-lisp)
+
+
+(setq ls-lisp-use-insert-directory-program nil)
 
 ;; ディレクトリを先に表示する
 (setq ls-lisp-dirs-first t)
