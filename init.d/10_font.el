@@ -5,7 +5,8 @@
 ;;; Time:   '10/08/25
 
 
-(defconst jiros-setting-font-string (format "%s-%d" jiros-setting-font-family jiros-setting-font-size))
+(defvar jiros-setting-font-string (frame-parameter nil 'font))
+
 (set-frame-font jiros-setting-font-string)
 
 
