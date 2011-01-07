@@ -22,9 +22,9 @@
         )
       )
 
-(setq jiros-setting-font-string "VL ゴシック-11")
+(setq jiros-setting-font-string "VL ゴシック-9")
 
-(setq jiros-setting-frame-width 114)
+(setq jiros-setting-frame-width 210)
 (setq jiros-setting-frame-height 59)
 
 (setq jiros-setting-init-frame-alist-list
