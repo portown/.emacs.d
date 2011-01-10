@@ -14,7 +14,7 @@
     ;; インデントにスペースを使う
     (indent-tabs-mode . nil)
     ;; タブキーの幅
-    (tab-width . 1)
+    (tab-width . 2)
     ;; 基本インデント
     (c-basic-offset . 2)
     ;; コメント行のインデント
