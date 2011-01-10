@@ -2659,7 +2659,8 @@ like following:
 	      ;; In order to prevent `epa-file' to encrypt the file double,
 	      ;; `epa-file-name-regexp' is temorarily changed into the null
 	      ;; regexp that never matches any string.
-	      (let ((epa-file-name-regexp "\\`\\'"))
+	      (let ((epa-file-name-regexp "\\`\\'")
+		    (coding-system-for-write 'binary))
 		(when (fboundp 'epa-file-name-regexp-update)
 		  (epa-file-name-regexp-update))
 		(with-temp-file file
@@ -2678,7 +2679,8 @@ like following:
     ;; This is required because `alpaca-save-buffer' checks its timestamp.
     (with-temp-file file)
     (with-temp-buffer
-      (let ((buffer-file-name file))
+      (let ((buffer-file-name file)
+	    (coding-system-for-write 'binary))
 	(insert str)
 	(condition-case nil
 	    (if (alpaca-save-buffer)
@@ -6824,6 +6826,10 @@ been initialized yet."
 
 (defun twittering-organic-retweet ()
   (interactive)
+  (let* ((id (twittering-get-id-at))
+	 (status (twittering-find-status (twittering-get-id-at))))
+    (when (equal "true" (cdr (assoc 'user-protected status)))
+      (error "Cannot retweet protected tweets.")))
   (let ((username (get-text-property (point) 'username))
 	(text (get-text-property (point) 'text))
 	(id (get-text-property (point) 'id))
