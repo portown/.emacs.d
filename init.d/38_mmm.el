@@ -36,6 +36,17 @@
        mmm-never-modes))
 
 
+;; submodeの装飾レベル
+;; 0: 通常のfont-lockに準じる
+;; 1: submode中のfaceを一律に変更する
+;; 2: submode中のfaceを様々に変更する
+
+(setq mmm-submode-decoration-level 1)
+
+;; decoration-level: 1 のときに使用されるface
+(set-face-background 'mmm-default-submode-face "gray15")
+
+
 ;; mmm-modeで常に使用するサブクラス
 
 (setq mmm-global-classes
@@ -53,17 +64,18 @@
 ;; MODEとEXTENSIONはnilを指定するとワイルドカード
 
 (mmm-add-mode-ext-class nil "\\.s?html?\\'" 'embedded-css) ; mmm-mode付属。CSS in HTML
+(mmm-add-mode-ext-class nil "\\.php?\\'" 'jiros-html-php)
 
 
-;; submodeの装飾レベル
-;; 0: 通常のfont-lockに準じる
-;; 1: submode中のfaceを一律に変更する
-;; 2: submode中のfaceを様々に変更する
+;; サブクラスの記述
 
-(setq mmm-submode-decoration-level 1)
-
-;; decoration-level: 1 のときに使用されるface
-(set-face-background 'mmm-default-submode-face "gray15")
+;; PHP in HTML
+(mmm-add-classes
+ '((jiros-html-php
+    :submode php-mode
+    :front "<\\?\\(php\\)?"
+    :back "\\?>"))
+ )
 
 
 ;; EOF
