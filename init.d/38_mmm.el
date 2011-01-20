@@ -32,6 +32,7 @@
          woman-mode
          magit-mode
          magit-log-edit-mode
+         ibuffer-mode
          )
        mmm-never-modes))
 
