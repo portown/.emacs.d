@@ -5,6 +5,7 @@
 ;;; Time:   '11/01/22
 
 
+(autoload 'javascript-mode "javascript" nil t)
 (autoload 'js2-mode "js2" nil t)
 
 

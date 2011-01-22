@@ -65,18 +65,19 @@
 ;; MODEとEXTENSIONはnilを指定するとワイルドカード
 
 (mmm-add-mode-ext-class nil "\\.s?html?\\'" 'embedded-css) ; mmm-mode付属。CSS in HTML
-(mmm-add-mode-ext-class nil "\\.php?\\'" 'jiros-html-php)
+(mmm-add-mode-ext-class nil "\\.php?\\'" 'html-php)        ; mmm-mode付属。PHP in HTML
+(mmm-add-mode-ext-class nil "\\.s?html?\\'" 'html-js)      ; mmm-mode付属。Javascript in HTML
 
 
 ;; サブクラスの記述
 
-;; PHP in HTML
-(mmm-add-classes
- '((jiros-html-php
-    :submode php-mode
-    :front "<\\?\\(php\\)?"
-    :back "\\?>"))
- )
+;; ;; Javascript in HTML
+;; (mmm-add-classes
+;;  '((jiros-html-js
+;;     :submode js2-mode
+;;     :front "<script [^>]*>?"
+;;     :back "</script>?"))
+;;  )
 
 
 ;; EOF
