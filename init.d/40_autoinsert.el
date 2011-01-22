@@ -88,6 +88,8 @@
         (("\\.tex\\'" . "TeX file")                    . ,(jiros-template-name "tex"))
         (("\\.rb\\'" . "Ruby source")                  . ,(jiros-template-name "rb"))
         (("Rakefile" . "Rake source")                  . ,(jiros-template-name "rb"))
+        (("\\.js\\'" . "Javascript source")            . ,(jiros-template-name "js"))
+        (("\\.json\\'" . "JSON file")                  . ,(jiros-template-name "js"))
         ))
 
 
