@@ -1,3 +1,168 @@
+2011-01-29  Tadashi MATSUO  <tad@mymail.twin.jp>
+
+	* twittering-mode.el: Reimplement `twittering-tinyurl-get' with
+	`twittering-send-http-request'.
+	(twittering-url-wrapper): removed.
+	(twittering-url-insert-file-contents): removed.
+	(twittering-url-retrieve-synchronously): removed.
+	(twittering-tinyurl-get): reimplemented with
+	`twittering-send-http-request'. In addition, the query parameter
+	is correcly encoded by `twittering-percent-encode'.
+
+	* twittering-mode.el: Add `is.gd' as a URL shortening service.
+	Thanks to Michael Kohl.
+	(twittering-tinyurl-service): update the document.
+	(twittering-tinyurl-services-map): add an entry for `is.gd'.
+
+	* twittering-mode.el: Extend the format of
+	`twittering-tinyurl-services-map'. One can register a service that
+	requires a special HTTP request and/or post-processing.
+	(twittering-tinyurl-services-map): extend the meaning of the
+	variable.
+	(twittering-tinyurl-get): support new format of
+	`twittering-tinyurl-services-map'.
+
+	* twittering-mode.el: Add `goo.gl' as a URL shortening service.
+	(twittering-tinyurl-services-map): add an entry for `goo.gl'.
+
+	* twittering-mode.el: Add `bit.ly' and `j.mp' as URL shortening
+	services. Thanks to Lars Gregori.
+	(twittering-tinyurl-services-map): add entries for `bit.ly' and
+	`j.mp'.
+	(twittering-bitly-login): new variable.
+	(twittering-bitly-api-key): new variable.
+	(twittering-make-http-request-for-bitly): new function.
+
+	* twittering-mode.el: Reimplement normalization of alists from XML
+	structure.
+	(twittering-atom-xmltree-to-status-datum): change the value
+	corresponding to the key `source' into a URL with a tag.
+	(twittering-status-to-status-datum): removed.
+	(twittering-normalize-raw-status): new function to generate
+	normalized alist representing a tweet.
+	(twittering-xmltree-to-status): use
+	`twittering-normalize-raw-status' instead of
+	`twittering-status-to-status-datum'.
+
+	* twittering-mode.el: `twittering-make-clickable-status-datum'
+	does not redefine `source'.
+	(twittering-atom-xmltree-to-status-datum): define `source' as
+	a text surrounded by A-tag.
+	(twittering-normalize-raw-status): likewise.
+	(twittering-make-clickable-status-datum): do not redefine
+	`source'.
+
+	* twittering-mode.el: Add text properties to tweets on rendering.
+	(twittering-http-get-default-sentinel): do not call
+	`twittering-make-clickable-status-datum'.
+	(twittering-make-clickable-status-datum): removed.
+	(twittering-make-string-with-user-name-property): new function.
+	(twittering-make-string-with-source-property): new function.
+	(twittering-make-fontified-tweet-text): new function.
+	(twittering-generate-format-table): add text properties.
+
+2011-01-23  Tadashi MATSUO  <tad@mymail.twin.jp>
+
+	* test/test-twittering-mode.el: Add some tests for the format
+	specifiers "%FILL[prefix]{...}" and "%FOLD[prefix]{...}".
+	* twittering-mode.el (twittering-status-format): add a document
+	for the format specifier "%FOLD[prefix]{...}".
+
+	* test/test-twittering-mode.el: Fix an error of
+	`url-generic-parse-url' on Emacs21 by calling
+	`url-scheme-get-property' before `url-generic-parse-url' is called.
+
+2011-01-21  Tadashi MATSUO  <tad@mymail.twin.jp>
+
+	* twittering-mode.el: Decode received XML document as UTF-8 before
+	parsing it.
+	(twittering-http-get-default-sentinel): decode received XML
+	document as UTF-8 before parsing it if Content-Type in response
+	header has a parameter "charset=utf-8".
+
+	* twittering-mode.el: The format specifier "%FOLD[prefix]{...}"
+	does not squeeze white spaces.
+	(twittering-fill-string): does not squeeze white spaces if
+	`keep-newline' is non-nil.
+
+2011-01-16  Tadashi MATSUO  <tad@mymail.twin.jp>
+
+	* twittering-mode.el: Ensure that the pointed tweet is visible on
+	editing a tweet.
+	(twittering-ensure-whole-of-status-is-visible): new function.
+
+	* twittering-mode.el: Isolate addition of text properties from a
+	function parsing XML.
+	(twittering-http-get-default-sentinel): call
+	`twittering-make-clickable-status-datum' here.
+	(twittering-atom-xmltree-to-status): do not add text properties to
+	statuses.
+	(twittering-status-to-status-datum): likewise.
+
+	* twittering-mode.el: Render statuses in order of field property
+	instead of id property.
+	(twittering-make-common-properties): add field property as a
+	common property.
+	(twittering-get-common-properties): likewise.
+	(twittering-field-id<): new function.
+	(twittering-field-id=): new function.
+	(twittering-make-field-id): new function.
+	(twittering-make-field-properties): new function.
+	(twittering-render-timeline): render statuses in order of their
+	field properties.
+	(twittering-show-replied-statuses): add special field property to
+	replied statuses.
+
+	* twittering-mode.el: Move point by using field property instead
+	of id property.
+	(twittering-get-current-status-head): redefined with field
+	property instead of id property.
+	(twittering-get-first-status-head): likewise.
+	(twittering-get-next-status-head): likewise.
+	(twittering-get-previous-status-head): likewise.
+
+	* twittering-mode.el: Use rendered-as property for rendering
+	replied statuses instead of a trick with id and original-id
+	properties.
+	(twittering-get-common-properties): add rendered-as property as a
+	common property.
+	(twittering-make-field-properties): add rendered-as property if
+	necessary.
+	(twittering-make-field-properties-of-popped-ancestors): new
+	function.
+	(twittering-rendered-as-ancestor-status-p): new function.
+	(twittering-get-base-id-of-ancestor-at): new function.
+	(twittering-replied-statuses-visible-p): use the new function
+	`twittering-get-base-id-of-ancestor-at' instead of directly
+	referring id and original-id properties.
+	(twittering-hide-replied-statuses): likewise.
+	(twittering-show-replied-statuses): use
+	`twittering-make-field-properties-of-popped-ancestors'.
+
+	* twittering-mode.el: Remove a trick using id and original-id
+	properties for rendering replied statuses.
+	(twittering-get-common-properties): remove original-id from common
+	properties.
+	(twittering-show-replied-statuses): do not overwrite id and
+	original-id properties.
+	(twittering-enter): do not refer original-id property.
+
+	* twittering-mode.el: Support favorites timeline.
+	(twittering-timeline-spec-to-string): support favorites timeline
+	spec.
+	(twittering-extract-timeline-spec): likewise.
+	(twittering-timeline-spec-primary-p): add favorites timeline spec
+	is a primary timeline spec.
+	(twittering-call-api): support favorites timeline spec.
+	(twittering-read-timeline-spec-with-completion): add ":favorites"
+	as a candidate of completion. In addition, one can input a
+	username with completion for ":favorites/".
+	(twittering-goto-next-status): display an error message on the
+	oldest tweet on favorites timeline.
+	(twittering-goto-previous-status): likewise.
+	* test/test-twittering-mode.el: Add tests for favorites timeline
+	spec.
+
 2011-01-09  Tadashi MATSUO  <tad@mymail.twin.jp>
 
 	* twittering-mode.el: Ensure that encrypted strings are written
