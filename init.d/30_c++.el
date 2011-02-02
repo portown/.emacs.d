@@ -80,11 +80,13 @@
     (c-block-comment-prefix . " ")
     ))
 
+(c-add-style "jiros-c-style" jiros-c-style)
+
 ;; フック設定
 (add-hook 'c-mode-common-hook
           (lambda ()
             ;; 作成したスタイルを設定
-            (c-add-style "jiros-c-style" jiros-c-style t)
+            (c-set-style "jiros-c-style")
 
             ;; エレクトリック機能を設定
             (c-toggle-auto-newline 1)   ; 改行が自動挿入される
