@@ -87,32 +87,32 @@
                          skk-isearch-mode-enable)
                 (skk-isearch-mode-cleanup))))
 
-;; ローマ字ルールの変更
-(setq skk-rom-kana-rule-list
-      '(
-        ;; ("si"  nil ("スィ" . "すぃ"))
-        ;; ("ti"  nil ("ティ" . "てぃ"))
-        ;; ("tu"  nil ("トゥ" . "とぅ"))
-        ;; ("dwo" nil ("ドゥ" . "どぅ"))
-        ;; ("hh"  "h" ("ッ"   . "っ"))
-        ;; ("wi"  nil ("ヰ"   . "ゐ"))
-        ;; ("whi" nil ("ウィ" . "うぃ"))
-        ;; ("we"  nil ("ヱ"   . "ゑ"))
-        ;; ("whe" nil ("ウェ" . "うぇ"))
-        ;; ("who" nil ("ウォ" . "うぉ"))
-        ;; ("kwa" nil ("クァ" . "くぁ"))
-        ;; ("kwi" nil ("クィ" . "くぃ"))
-        ;; ("kwe" nil ("クェ" . "くぇ"))
-        ;; ("kwo" nil ("クォ" . "くぉ"))
-        ;; ("tsa" nil ("ツァ" . "つぁ"))
-        ;; ("tsi" nil ("ツィ" . "つぃ"))
-        ;; ("tse" nil ("ツェ" . "つぇ"))
-        ;; ("tso" nil ("ツォ" . "つぉ"))
-        (" " nil ("　" . "　"))
-        ("!" nil ("！" . "！"))
-        ("(" nil ("（" . "（"))
-        (")" nil ("）" . "）"))
-        ))
+;; ;; ローマ字ルールの変更
+;; (setq skk-rom-kana-rule-list
+;;       '(
+;;         ;; ("si"  nil ("スィ" . "すぃ"))
+;;         ;; ("ti"  nil ("ティ" . "てぃ"))
+;;         ;; ("tu"  nil ("トゥ" . "とぅ"))
+;;         ;; ("dwo" nil ("ドゥ" . "どぅ"))
+;;         ;; ("hh"  "h" ("ッ"   . "っ"))
+;;         ;; ("wi"  nil ("ヰ"   . "ゐ"))
+;;         ;; ("whi" nil ("ウィ" . "うぃ"))
+;;         ;; ("we"  nil ("ヱ"   . "ゑ"))
+;;         ;; ("whe" nil ("ウェ" . "うぇ"))
+;;         ;; ("who" nil ("ウォ" . "うぉ"))
+;;         ;; ("kwa" nil ("クァ" . "くぁ"))
+;;         ;; ("kwi" nil ("クィ" . "くぃ"))
+;;         ;; ("kwe" nil ("クェ" . "くぇ"))
+;;         ;; ("kwo" nil ("クォ" . "くぉ"))
+;;         ;; ("tsa" nil ("ツァ" . "つぁ"))
+;;         ;; ("tsi" nil ("ツィ" . "つぃ"))
+;;         ;; ("tse" nil ("ツェ" . "つぇ"))
+;;         ;; ("tso" nil ("ツォ" . "つぉ"))
+;;         (" " nil ("　" . "　"))
+;;         ("!" nil ("！" . "！"))
+;;         ("(" nil ("（" . "（"))
+;;         (")" nil ("）" . "）"))
+;;         ))
 
 ;; 句読点リストの設定
 (setq-default skk-kutoten-type 'jp)
@@ -123,22 +123,22 @@
 ;; ;; ACTの使用
 ;; (setq skk-use-act t)
 
-;; NICOLAの使用
-(setq skk-use-kana-keyboard t)
-(setq skk-kanagaki-keyboard-type 'nicola-dvorak)
+;; ;; NICOLAの使用
+;; (setq skk-use-kana-keyboard t)
+;; (setq skk-kanagaki-keyboard-type 'nicola-dvorak)
 
-;; モードラインに表示される文字
-(setq skk-nicola-hiragana-mode-string "い")
-(setq skk-nicola-katakana-mode-string "イ")
+;; ;; モードラインに表示される文字
+;; (setq skk-nicola-hiragana-mode-string "い")
+;; (setq skk-nicola-katakana-mode-string "イ")
 
-;; 親指シフト認識時間
-(setq skk-nicola-interval 0.08)
+;; ;; 親指シフト認識時間
+;; (setq skk-nicola-interval 0.08)
 
-;; 左親指キー
-(setq skk-nicola-lshift-keys '([muhenkan]))
+;; ;; 左親指キー
+;; (setq skk-nicola-lshift-keys '([muhenkan]))
 
-;; 右親指キー
-(setq skk-nicola-rshift-keys '([henkan]))
+;; ;; 右親指キー
+;; (setq skk-nicola-rshift-keys '([henkan]))
 
 
 

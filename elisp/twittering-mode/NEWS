@@ -102,6 +102,27 @@
   from stucking on inputting characters on other buffer. The delay time is
   specified by the new variable `twittering-url-request-sentinel-delay',
   which is 1 second by default.
+* Support for favorites timeline.
+  ":favorites" and ":favorites/USER" are added as new timeline specs.
+  By using the latter, you can read favorites for other users. You can
+  specify a username with completion when you input ":favorites/" for
+  `twittering-visit-timeline' bound to "V" in default.
+  Note that favorites are rendered in order of time when each tweet is
+  posted. This is because it is impossible to retrieve the time when a
+  tweet was favorited. At most, 20 favorites can be retrieved. Backward
+  retrieval of more previous favorites is not supported yet.
+* Support for new URL shortening services.
+  You can use `bit.ly', `goo.gl', `is.gd' or `j.mp' as URL shortening
+  service by the following.
+  (setq twittering-tinyurl-service 'bit.ly) ;; for bit.ly
+  (setq twittering-tinyurl-service 'goo.gl) ;; for goo.gl
+  (setq twittering-tinyurl-service 'is.gd)  ;; for is.gd
+  (setq twittering-tinyurl-service 'j.mp)   ;; for j.mp
+  To use `bit.ly' or `j.mp', you need to configure `twittering-bitly-login'
+  and `twittering-bitly-api-key' according to your account as follows.
+  (setq twittering-bitly-login "YOUR-LOGIN-NAME")
+  (setq twittering-bitly-api-key "YOUR-API-KEY")
+  Thanks to Michael Kohl and Lars Gregori.
 * ...
 
 ### Bug fixes

@@ -104,6 +104,28 @@
   から行うようにしました。待ち時間は変数
   `twittering-url-request-sentinel-delay'で指定できます。デフォルトの
   待ち時間は1秒です。
+* 「お気に入り」に対応
+  「お気に入り」一覧を表示するtimeline specとして":favorites"と
+  ":favorites/USER"を追加しました。":favorites/USER"で指定したユーザの
+  「お気に入り」を見ることができます。`twittering-visit-timeline'(デフォ
+  ルトでは"V"にbindされています)に対して":favorites/"と入力してEnter
+  すると、続いてユーザ名を補完入力できます。「お気に入り」は元々のtweetの
+  投稿時刻の順に表示されるので注意してください。これは「お気に入り」に
+  登録した時刻を取得する方法がないためです。また、取得できる「お気に入
+  り」は最大20件です。より過去にさかのぼっての取得は未対応です。
+* 新たにいくつかの短縮URL生成サービスに対応
+  新たに`bit.ly', `goo.gl', `is.gd', `j.mp'に対応しました。下記のような
+  設定で有効にできます。
+  (setq twittering-tinyurl-service 'bit.ly) ;; bit.lyの場合
+  (setq twittering-tinyurl-service 'goo.gl) ;; goo.glの場合
+  (setq twittering-tinyurl-service 'is.gd)  ;; is.gdの場合
+  (setq twittering-tinyurl-service 'j.mp)   ;; j.mpの場合
+  `bit.ly'や`j.mp'を使うにはお持ちのアカウントに応じて下記のように
+  `twittering-bitly-login'と`twittering-bitly-api-key'を設定しておく必要が
+  あります。
+  (setq twittering-bitly-login "YOUR-LOGIN-NAME")
+  (setq twittering-bitly-api-key "YOUR-API-KEY")
+  Thanks to Michael Kohl and Lars Gregori.
 * ...
 
 ### バグ修正
