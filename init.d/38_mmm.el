@@ -33,6 +33,10 @@
          magit-mode
          magit-log-edit-mode
          ibuffer-mode
+         xgit-diff-mode
+         xgit-log-edit
+         bzr-diff-mode
+         bzr-log-edit
          )
        mmm-never-modes))
 
