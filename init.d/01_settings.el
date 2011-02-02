@@ -49,6 +49,9 @@
 ;; キルリングとクリップボードを同一化する
 (setq x-select-enable-clipboard t)
 
+;; 複数行コメントを使用しない
+(setq comment-multi-line nil)
+
 
 
 ;; EOF
