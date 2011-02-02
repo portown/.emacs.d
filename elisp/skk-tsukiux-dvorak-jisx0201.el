@@ -8,12 +8,13 @@
 (setq skk-jisx0201-base-rule-list
       '(
         ("\n" nil skk-kakutei)
-        ("L" nil skk-latin-or-dakuten)
-        ("eL" nil skk-jisx0208-latin-mode)
+        ;; ("L" nil skk-latin-or-dakuten)
+        ;; ("eL" nil skk-jisx0208-latin-mode)
+        ("L" nil skk-jisx0208-latin-mode)
         ("Q" nil skk-set-henkan-point-subr)  ;; [YK] 花では Q
         ("@" nil skk-today)
         ("$" nil skk-display-code-for-char-at-point)
-        ("/" nil skk-toggle-kana)
+        ("/" nil skk-toggle-katakana)
         ("`" nil skk-puurge-from-jisyo)
         ("e\\" nil skk-input-by-code-or-menu)
         ("e " nil ",")

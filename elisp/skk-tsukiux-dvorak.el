@@ -18,10 +18,16 @@
 
 (setq skk-set-henkan-point-key
       '(?\" ?< ?> ?P ?Y ?F ?G ?C ?R
-        ?A ?O ?E ?U ?I ?D ?H ?T ?N ?S
-        ?: ?J ?K ?X ?B ?M ?W ?V ?Z))
+        ?A  ?O ?E ?U ?I ?D ?H ?T ?N ?S ?_
+        ?:  ?J ?K ?X ?B ?M ?W ?V ?Z
+        ))
 (setq skk-downcase-alist
-      '((?\" . ?') (?< . ?,) (?> . ?.) (?: . ?\;)))
+      '((?\" . ?')
+        (?<  . ?,)
+        (?>  . ?.)
+        (?_  . ?-)
+        (?:  . ?\;)
+        ))
 
 ;; `-' で前候補を表示。
 (setq skk-previous-candidate-char ?=)  ;; [YK] `=' に変更した。
@@ -102,6 +108,14 @@
         ("e]" nil "」")
         ("ee[" nil "『")
         ("ee]" nil "』")
+        ("(" nil "（")
+        (")" nil "）")
+        ("[" nil "［")
+        ("]" nil "］")
+        ("{" nil "｛")
+        ("}" nil "｝")
+        ("tt," nil "＜")
+        ("tt." nil "＞")
         ;; ("-" nil skk-kanagaki-set-okurigana-if-henkan-on)
         ("e\\" nil skk-input-by-code-or-menu)
         ("e " nil skk-current-touten)
