@@ -115,7 +115,7 @@
 ;;         ))
 
 ;; 句読点リストの設定
-(setq-default skk-kutoten-type 'jp)
+(setq-default skk-kutouten-type 'jp)
 
 ;; 変換候補選択キーの設定
 (setq skk-henkan-show-candidates-keys '(?a ?o ?e ?u ?h ?t ?n))

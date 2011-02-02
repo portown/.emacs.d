@@ -15,9 +15,10 @@
 (setq TeX-newline-function 'reindent-then-newline-and-indent)
 
 
-;; (add-hook 'TeX-mode-hook
-;;           #'(lambda ()
-;;               ))
+(add-hook 'LaTeX-mode-hook
+          #'(lambda ()
+              (setq skk-kutouten-type 'en)
+              ))
 
 
 (setq auto-mode-alist
