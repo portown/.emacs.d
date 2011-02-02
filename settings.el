@@ -20,7 +20,9 @@
 (setq user-mail-address "portown09@gmail.com")
 
 (setq jiros-setting-elisp-directory
-      '("~/.emacs.d/elisp")
+      '("~/.emacs.d/elisp"
+        "/usr/local/share/emacs/site-lisp"
+        )
       )
 
 (setq jiros-setting-use-skk-server t)
