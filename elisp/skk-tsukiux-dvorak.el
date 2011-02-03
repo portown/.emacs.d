@@ -8,9 +8,11 @@
 ;; 前提としている。skk-kanagaki-dakuten, skk-kanagaki-handakuten が
 ;; あれば daredevil SKK は必要ないが。
 
-(when (not (boundp 'skk-hana-ansi)) (setq skk-hana-ansi nil))
+;; (when (not (boundp 'skk-hana-ansi)) (setq skk-hana-ansi nil))
 
-(require 'skk-kanagaki-util)
+(require 'skk-vars)
+;; (require 'skk-autoloads)
+;; (require 'skk-kanagaki-util)
 
 (setq skk-special-midashi-char-list '(?[ ?]))
 
@@ -35,60 +37,60 @@
 (setq skk-process-okuri-early nil)  ; ローマ字変換の時以外は意味なし。
 
 
-;; copied from skk-kanagaki.el
+;; ;; copied from skk-kanagaki.el
 
-(defun skk-kanagaki-set-okurigana (&optional no-sokuon)
-  "ポイントの直前の文字を送り仮名と見倣して、変換を開始する。
-ただし、 もうひとつ前の文字が促音だった場合には、 それ以降を送り仮名と見倣す。"
-  (interactive)
-  (let ((pt1 (point))
-        pt2 okuri sokuon)
-    (setq okuri
-          (skk-save-point
-           ;; うう、こんなことをしなければならないのか...
-           (backward-char 1)
-           (buffer-substring-no-properties
-            (setq pt2 (point))
-            pt1)))
-    (when okuri
-      (unless no-sokuon
-        (setq sokuon
-              (skk-save-point
-               (backward-char 2)
-               (buffer-substring-no-properties
-                (point)
-                pt2)))
-        (unless (member sokuon '("っ" "ッ"))
-          (setq sokuon nil)))
-      ;;
-      (skk-save-point
-       (backward-char (if sokuon 2 1))
-       (skk-set-marker skk-okurigana-start-point
-                       (point)))
-      (setq skk-okuri-char (skk-okurigana-prefix okuri))
-      (unless skk-current-search-prog-list
-        (setq skk-current-search-prog-list
-              skk-search-prog-list))
-      (skk-set-okurigana))))
-;; end copy
+;; (defun skk-kanagaki-set-okurigana (&optional no-sokuon)
+;;   "ポイントの直前の文字を送り仮名と見倣して、変換を開始する。
+;; ただし、 もうひとつ前の文字が促音だった場合には、 それ以降を送り仮名と見倣す。"
+;;   (interactive)
+;;   (let ((pt1 (point))
+;;         pt2 okuri sokuon)
+;;     (setq okuri
+;;           (skk-save-point
+;;            ;; うう、こんなことをしなければならないのか...
+;;            (backward-char 1)
+;;            (buffer-substring-no-properties
+;;             (setq pt2 (point))
+;;             pt1)))
+;;     (when okuri
+;;       (unless no-sokuon
+;;         (setq sokuon
+;;               (skk-save-point
+;;                (backward-char 2)
+;;                (buffer-substring-no-properties
+;;                 (point)
+;;                 pt2)))
+;;         (unless (member sokuon '("っ" "ッ"))
+;;           (setq sokuon nil)))
+;;       ;;
+;;       (skk-save-point
+;;        (backward-char (if sokuon 2 1))
+;;        (skk-set-marker skk-okurigana-start-point
+;;                        (point)))
+;;       (setq skk-okuri-char (skk-okurigana-prefix okuri))
+;;       (unless skk-current-search-prog-list
+;;         (setq skk-current-search-prog-list
+;;               skk-search-prog-list))
+;;       (skk-set-okurigana))))
+;; ;; end copy
 
-(defun skk-kanagaki-set-okurigana-if-henkan-on (&optional arg)
-  (interactive "*p")
-  (if skk-henkan-mode
-      (skk-kanagaki-set-okurigana (if (eq (prefix-numeric-value arg) 4) nil t))
-    "-"))
+;; (defun skk-kanagaki-set-okurigana-if-henkan-on (&optional arg)
+;;   (interactive "*p")
+;;   (if skk-henkan-mode
+;;       (skk-kanagaki-set-okurigana (if (eq (prefix-numeric-value arg) 4) nil t))
+;;     "-"))
 
-(defun skk-latin-or-dakuten (&optional arg)
-  "■モードと▼モードでは latin-mode に移行する。
-▽モードでは濁点を追加し、先頭の一字以外では濁点を追加した仮名を
-送り仮名開始文字とみなして変換を開始する。"
-  (interactive "*p")
-  (if (eq skk-henkan-mode 'on)
-      (progn
-        (skk-kanagaki-dakuten arg)
-        (when (< (+ 1 (marker-position skk-kana-start-point)) (point))
-          (skk-kanagaki-set-okurigana t)))
-    (skk-latin-mode arg)))
+;; (defun skk-latin-or-dakuten (&optional arg)
+;;   "■モードと▼モードでは latin-mode に移行する。
+;; ▽モードでは濁点を追加し、先頭の一字以外では濁点を追加した仮名を
+;; 送り仮名開始文字とみなして変換を開始する。"
+;;   (interactive "*p")
+;;   (if (eq skk-henkan-mode 'on)
+;;       (progn
+;;         (skk-kanagaki-dakuten arg)
+;;         (when (< (+ 1 (marker-position skk-kana-start-point)) (point))
+;;           (skk-kanagaki-set-okurigana t)))
+;;     (skk-latin-mode arg)))
 
 (setq skk-rom-kana-rule-list nil)
 
