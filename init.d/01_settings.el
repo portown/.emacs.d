@@ -53,6 +53,11 @@
 ;; 複数行コメントを使用しない
 (setq comment-multi-line nil)
 
+;; バッファ終端以降を示す
+(setq-default indicate-empty-lines t)
+
+;; バッファの範囲のインジケータを右側に置く
+(setq-default indicate-buffer-boundaries 'right)
 
 
 ;; EOF
