@@ -4,6 +4,9 @@
 ;; 言語設定
 (set-language-environment "Japanese")
 
+;; 起動環境の判定
+(load "~/.emacs.d/env")
+
 ;; 設定の読み込み
 (load "~/.emacs.d/settings")
 
@@ -11,6 +14,10 @@
 ;; -------------------------------------------------------------
 ;; 全体設定
 ;; -------------------------------------------------------------
+
+;; Emacs Lisp読み込みパスを追加
+(load "~/.emacs.d/addpath")
+
 
 ;; ;; MSYSのドライブをマウント
 ;; (when jiros-on-Windows
@@ -27,25 +34,6 @@
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil)
 (init-loader-load "~/.emacs.d/inits")
-
-
-;; -------------------------------------------------------------
-;; lookup用設定
-;; -------------------------------------------------------------
-
-;; (autoload 'lookup "lookup" nil t)
-;; (autoload 'lookup-region "lookup" nil t)
-;; (autoload 'lookup-pattern "lookup" nil t)
-
-;; ;; 辞書ファイルの設定
-;; (setq lookup-search-agents
-;; 	  '(
-;; 		(ndeb "e:/dic/ASCDATES/")
-;; 		(ndeb "e:/dic/EDICT/")
-;; 		))
-
-
-
 
 
 ;; EOF

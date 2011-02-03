@@ -5,9 +5,6 @@
 ;;; Time:   '10/10/27
 
 
-;; 起動環境の判定
-(load "~/.emacs.d/env")
-
 ;; デバッグモード
 (setq debug-on-error nil)
 
@@ -44,21 +41,7 @@
          )
         ))
 
-;; (set-frame-cursor-color nil (frame-parameter nil 'cursor-color))
-
 (setq jiros-setting-twitter-interval 40)
-
-
-
-
-;; Emacs Lisp読み込みパスを追加
-(load "~/.emacs.d/addpath")
-
-
-(load "~/.emacs.d/settings/tramp")
-
-
-
 
 
 ;; EOF
