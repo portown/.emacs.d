@@ -8,13 +8,23 @@
 (require 'tramp)
 
 
+;; TRAMPのデフォルトメソッド
 (setq tramp-default-method "ssh")
 
-(add-to-list 'tramp-default-proxies-alist
-             '("\\`orion\\'" "\\`root\\'" "/ssh:orion:"))
+
+;; ;; ホスト毎のデフォルトユーザの設定
+;; ;; (METHOD HOST USER) の形
+;; (setq tramp-default-user-alist
+;;       (list
+;;        '("ssh" "\\`portown\\.dyndns\\.org\\'" "kou")
+;;        ))
 
 
-
+;; プロクシ設定
+(setq tramp-default-proxies-alist
+      (list
+       '("\\`orion\\'" "\\`root\\'" "/ssh:%h:")
+       ))
 
 
 ;; EOF
