@@ -37,6 +37,7 @@
 
 ;; GUDを利用する
 (setq gdb-many-windows t)
+(setq gdb-restore-windows t)
 
 ;; シェルの設定
 (setq explicit-shell-file-name "bash")
