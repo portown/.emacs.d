@@ -5,9 +5,13 @@
 ;;; Time:   '10/08/25
 
 
+(autoload 'hungry-mode "hungry-mode" "Minor mode for hungry delete." t)
+
+
 ;; Emacs Lispのフック設定
 (add-hook 'emacs-lisp-mode-hook
           #'(lambda ()
+              (hungry-mode t)
               (define-key emacs-lisp-mode-map "\C-c\C-c" 'comment-region)
               ))
 
