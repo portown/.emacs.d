@@ -5,7 +5,7 @@
 
 
 ;; SKKの初期設定ファイル名
-(setq skk-init-file "~/.emacs.d/settings/skk.el")
+(setq skk-init-file "~/.emacs.d/settings/skk")
 
 ;; SKKの初期設定ファイルをバイトコンパイルするか否か
 (setq skk-byte-compile-init-file t)
