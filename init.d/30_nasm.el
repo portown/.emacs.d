@@ -5,7 +5,8 @@
 ;;; Time:   '10/08/25
 
 
-(require 'nasm-mode)
+(autoload 'nasm-mode "nasm-mode" "Major mode for editing nasm assembly source code." t)
+;; (require 'nasm-mode)
 
 
 (setq auto-mode-alist

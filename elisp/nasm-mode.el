@@ -53,6 +53,7 @@
 ;;      '((nasm-font-lock-keywords) nil nil nil nil))
 
 
+;;;###autoload
 (defun nasm-mode ()
   "Major mode for editing nasm assembler source code. It's essentially
 a pared-down version of asm-mode, customized by Tom.
