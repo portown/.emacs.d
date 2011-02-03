@@ -25,10 +25,7 @@
         )
       )
 
-(setq jiros-setting-use-skk-server t)
-
-(setq jiros-setting-font-family "MigMix 1M")
-(setq jiros-setting-font-size 11)
+(setq jiros-setting-font-string "VL ゴシック-11")
 
 (setq jiros-setting-frame-width 99)
 (setq jiros-setting-frame-height 69)
