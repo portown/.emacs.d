@@ -104,7 +104,7 @@
 (add-hook 'skk-mode-hook
           #'(lambda ()
               (ccc-setup)
-              (define-key skk-j-mode-map "\C-Q" 'skk-jisx0201-mode)
+              ;; (define-key skk-j-mode-map "\C-Q" 'skk-jisx0201-mode)
               ))
 
 
