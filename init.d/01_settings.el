@@ -36,13 +36,19 @@
 (setq truncate-partial-width-windows nil)
 
 ;; GUDを利用する
-(setq gdb-many-windows t)
-(setq gdb-restore-windows t)
+(eval-after-load "gdb"
+  '(progn
+     (setq gdb-many-windows t)
+     (setq gdb-restore-windows t)
+     ))
 
 ;; シェルの設定
-(setq explicit-shell-file-name "bash")
-(setq shell-file-name "bash")
-(setq shell-command-switch "-c")
+(eval-after-load "shell"
+  '(progn
+     (setq explicit-shell-file-name "bash")
+     (setq shell-file-name "bash")
+     (setq shell-command-switch "-c")
+     ))
 
 ;; スクロールバーを表示しない
 (set-scroll-bar-mode nil)

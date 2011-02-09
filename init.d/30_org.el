@@ -8,6 +8,19 @@
 (require 'org-install)
 
 
+(eval-after-load "org"
+  '(progn
+     ;; フック
+     (add-hook 'org-mode-hook
+               #'(lambda ()
+                   (define-key org-mode-map [?\C-,]
+                     #'(lambda ()
+                         (interactive)
+                         (set-frame-selected-window nil (previous-window))))
+                   ))
+     ))
+
+
 ;; 関連付け
 (setq auto-mode-alist
       (append
@@ -16,16 +29,6 @@
         '("TODO" . org-mode)
         )
        auto-mode-alist))
-
-;; フック
-(add-hook 'org-mode-hook
-          #'(lambda ()
-              (define-key org-mode-map [?\C-,]
-                #'(lambda ()
-                    (interactive)
-                    (set-frame-selected-window nil (previous-window))))
-              ))
-
 
 
 ;; EOF

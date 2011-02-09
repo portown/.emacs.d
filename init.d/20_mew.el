@@ -25,7 +25,10 @@
       'mew-send-hook))
 
 
-(setq mew-use-master-passwd t)
+(eval-after-load "mew"
+  '(progn
+     (setq mew-rc-file "~/.emacs.d/settings/mew")
+     ))
 
 
 

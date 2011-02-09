@@ -5,11 +5,14 @@
 ;;; Time:   '10/10/27
 
 
-;; 通常使うブラウザをgenericに設定
-(setq browse-url-browser-function 'browse-url-generic)
+(eval-after-load "browse-url"
+  '(progn
+     ;; 通常使うブラウザをgenericに設定
+     (setq browse-url-browser-function 'browse-url-generic)
 
-;; genericのプログラムを設定
-(setq browse-url-generic-program "/opt/google/chrome/google-chrome")
+     ;; genericのプログラムを設定
+     (setq browse-url-generic-program "/opt/google/chrome/google-chrome")
+     ))
 
 
 

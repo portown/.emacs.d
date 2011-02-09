@@ -8,17 +8,23 @@
 (load "auctex.el")
 
 
-(setq TeX-default-mode 'japanese-latex-mode)
+(eval-after-load "tex"
+  '(progn
+     (setq TeX-default-mode 'japanese-latex-mode)
 
-(setq TeX-parse-self t)
+     (setq TeX-parse-self t)
 
-(setq TeX-newline-function 'reindent-then-newline-and-indent)
+     (setq TeX-newline-function 'reindent-then-newline-and-indent)
+     ))
 
 
-(add-hook 'LaTeX-mode-hook
-          #'(lambda ()
-              (setq skk-kutouten-type 'en)
-              ))
+(eval-after-load "latex"
+  '(progn
+     (add-hook 'LaTeX-mode-hook
+               #'(lambda ()
+                   (setq skk-kutouten-type 'en)
+                   ))
+     ))
 
 
 (setq auto-mode-alist

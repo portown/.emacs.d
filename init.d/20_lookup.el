@@ -11,18 +11,21 @@
 
 
 
-(setq lookup-search-agents
-      '(
-        (ndtp "localhost")
-        (ndict "localhost")
-        (ndspell)
-        (ndic "/usr/share/edict/")
-        (ndic "/usr/share/dict/")
-        ))
+(eval-after-load "lookup"
+  '(progn
+     (setq lookup-search-agents
+           '(
+             (ndtp "localhost")
+             (ndict "localhost")
+             (ndspell)
+             (ndic "/usr/share/edict/")
+             (ndic "/usr/share/dict/")
+             ))
 
 
-(setq lookup-enable-splash nil)
-(setq lookup-default-method 'prefix)
+     (setq lookup-enable-splash nil)
+     (setq lookup-default-method 'prefix)
+     ))
 
 
 

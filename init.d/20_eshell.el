@@ -5,27 +5,33 @@
 ;;; Time:   '10/08/31
 
 
-(require 'eshell)
+(autoload 'eshell "eshell" "a shell-like command interpretor" t)
 
 
-;; rm *.*で下のディレクトリを消しすぎないように
-(setq eshell-glob-include-dot-dot nil)
+(eval-after-load "eshell"
+  '(progn
+     ;; rm *.*で下のディレクトリを消しすぎないように
+     (setq eshell-glob-include-dot-dot nil)
 
-;; Eshell終了時にヒストリの保存をいちいち聞かないようにする
-(setq eshell-save-history-on-exit nil)
+     ;; Eshell終了時にヒストリの保存をいちいち聞かないようにする
+     (setq eshell-save-history-on-exit nil)
 
+     ;; サイクル補完を行うか否か
+     (setq eshell-cmpl-cycle-completions nil)
 
-;; プロンプトの設定
-(setq eshell-prompt-function
-      #'(lambda ()
-          (concat
-           (getenv "USER") "@" (system-name)
-           ;; (eshell/pwd)                   ; カレントディレクトリ
-           (if (= (user-uid) 0) "#" "$")
-           " ")))
+     ;; プロンプトの設定
+     (setq eshell-prompt-function
+           #'(lambda ()
+               (concat
+                (getenv "USER") "@" (system-name)
+                ;; (eshell/pwd)                   ; カレントディレクトリ
+                (if (= (user-uid) 0) "#" "$")
+                " ")))
 
-;; プロンプトを認識する正規表現の設定
-(setq eshell-prompt-regexp "^[^@ #$]+@[^ #$]+[#$] ")
+     ;; プロンプトを認識する正規表現の設定
+     (setq eshell-prompt-regexp "^[^@ #$]+@[^ #$]+[#$] ")
+     ))
+
 
 (eval-after-load "em-term"
   '(setq eshell-visual-commands
