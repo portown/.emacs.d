@@ -15,7 +15,7 @@
         ("@" nil skk-today)
         ("$" nil skk-display-code-for-char-at-point)
         ("/" nil skk-toggle-katakana)
-        ("`" nil skk-puurge-from-jisyo)
+        ("`" nil skk-purge-from-jisyo)
         ("e\\" nil skk-input-by-code-or-menu)
         ("e " nil ",")
         ("t " nil ",")

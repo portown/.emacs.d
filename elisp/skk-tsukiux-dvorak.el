@@ -106,7 +106,7 @@
         ("$" nil skk-display-code-for-char-at-point)
         ("/" nil skk-toggle-kana)
         ("?" nil skk-jisx0201-mode)
-        ("`" nil skk-puurge-from-jisyo)
+        ("`" nil skk-purge-from-jisyo)
         ("e[" nil "「")
         ("e]" nil "」")
         ("ee[" nil "『")
