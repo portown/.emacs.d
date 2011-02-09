@@ -20,7 +20,7 @@ SOURCES = $(PART_SOURCES) $(INIT_SOURCES)
 OBJ     = $(PART_OBJ) $(INIT_OBJ)
 
 EMACS = emacs
-EMACSFLAGS = --batch --load settings.el --funcall batch-byte-compile
+EMACSFLAGS = --batch --load settings.el --load addpath.el --funcall batch-byte-compile
 
 
 # Pattern Rules
