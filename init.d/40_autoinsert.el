@@ -8,6 +8,8 @@
 (require 'autoinsert)
 (require 'cl)
 
+(require 'uuid)
+
 
 ;; ファイル作成時にテンプレートを自動挿入する
 (add-hook 'find-file-not-found-functions 'auto-insert)
@@ -34,14 +36,24 @@
 
   ;; 置換リストで置換する
   (goto-char (point-min))
-  (while (re-search-forward "%\\([^ \t\n\r\f%]+\\)%" nil t)
-    (let* ((matched (cdr-safe (assoc-string (match-string 1) jiros-template-var-alist))))
-      (when matched
-        (replace-match
-         (cond
-          ((stringp matched) matched)
-          ((functionp matched) (funcall matched))
-          )))))
+  (let (result-cache-alist)
+    (while (re-search-forward "%\\([^ \t\n\r\f%]+\\)%" nil t)
+      (let* ((matched (assoc-string (match-string 1) jiros-template-var-alist))
+             (matched-str (car-safe matched))
+             (matched-proc (cdr-safe matched))
+             (result-cache (assoc-string matched-str result-cache-alist)))
+        (when matched
+          (replace-match
+           (cond
+            ((not (null result-cache)) (cdr result-cache))
+            ((stringp matched-proc)
+             (setq result-cache-alist (cons (cons matched-str matched-proc) result-cache-alist))
+             matched-proc)
+            ((functionp matched-proc)
+             (let ((ret (funcall matched-proc)))
+               (setq result-cache-alist (cons (cons matched-str ret) result-cache-alist))
+               ret))
+            ))))))
 
   ;; カーソルを指定の位置にセットする
   (goto-char (point-min))
