@@ -14,31 +14,33 @@
 ;; mmm-modeの使用タイミング
 (setq mmm-global-mode
       ;; 常に使いたい場合
-      t
+      ;; t
       ;; 自動では使いたくない場合
       ;; nil
       ;; 自動で判別させたい場合
-      ;; 'maybe                            ; tでもnilでもなければなんでもいい
+      'maybe                        ; tでもnilでもなければなんでもいい
       )
 
 
-;; mmm-modeにしたくないメジャーモード
-(setq mmm-never-modes
-      (append
-       '(
-         twittering-mode
-         twittering-edit-mode
-         compilation-mode
-         woman-mode
-         magit-mode
-         magit-log-edit-mode
-         ibuffer-mode
-         xgit-diff-mode
-         xgit-log-edit
-         bzr-diff-mode
-         bzr-log-edit
-         )
-       mmm-never-modes))
+;; ;; mmm-modeにしたくないメジャーモード
+;; (setq mmm-never-modes
+;;       (append
+;;        '(
+;;          twittering-mode
+;;          twittering-edit-mode
+;;          compilation-mode
+;;          man
+;;          woman-mode
+;;          magit-mode
+;;          magit-log-edit-mode
+;;          ibuffer-mode
+;;          xgit-diff-mode
+;;          xgit-log-edit
+;;          bzr-diff-mode
+;;          bzr-log-edit
+;;          simple-hatena-mode
+;;          )
+;;        mmm-never-modes))
 
 
 ;; submodeの装飾レベル
@@ -52,14 +54,14 @@
 (set-face-background 'mmm-default-submode-face "gray15")
 
 
-;; mmm-modeで常に使用するサブクラス
+;; ;; mmm-modeで常に使用するサブクラス
 
-(setq mmm-global-classes
-      (append
-       '(
-         file-variables                 ; mmm-mode付属。ファイル末尾の"Local Variables:"に反応
-         )
-       mmm-global-classes))
+;; (setq mmm-global-classes
+;;       (append
+;;        '(
+;;          file-variables                 ; mmm-mode付属。ファイル末尾の"Local Variables:"に反応
+;;          )
+;;        mmm-global-classes))
 
 
 ;; mmm-modeを使用するファイルパターンとモードを指定
