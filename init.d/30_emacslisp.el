@@ -12,7 +12,9 @@
 (add-hook 'emacs-lisp-mode-hook
           #'(lambda ()
               (hungry-mode t)
-              (define-key emacs-lisp-mode-map "\C-c\C-c" 'comment-region)
+              (if (not (null buffer-file-name))
+                  (flymake-mode 1))
+              (define-key emacs-lisp-mode-map "\C-c\C-c" #'comment-region)
               ))
 
 

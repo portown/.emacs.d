@@ -8,6 +8,15 @@
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
 
 
+(setq auto-mode-alist
+      (append
+       (list
+        '("\\.rb\\'" . ruby-mode)
+        '("Rakefile" . ruby-mode)
+        )
+       auto-mode-alist))
+
+
 ;; ruby-modeロード後の設定
 
 (eval-after-load "ruby-mode"
@@ -23,10 +32,14 @@
      ;; 改行時、直前の行もインデント
      (define-key ruby-mode-map "\C-m" #'reindent-then-newline-and-indent)
 
-     ;; 削除をhungryにさせる
      (add-hook 'ruby-mode-hook
                #'(lambda ()
+                   ;; 削除をhungryにさせる
                    (hungry-mode t)
+
+                   ;; flymakeさせる
+                   (if (not (null buffer-file-name))
+                       (flymake-mode 1))
                    ))
 
      ;; 範囲コメントアウトをc-modeと同じキーに設定
@@ -68,38 +81,6 @@
                    (ruby-block-mode t)
                    ))
      ))
-
-
-(require 'flymake)
-(defun flymake-ruby-init ()
-  (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-         (local-file  (file-relative-name
-                       temp-file
-                       (file-name-directory buffer-file-name))))
-    (list "ruby" (list "-c" local-file))))
-(push '(".+\\.rb$" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("Rakefile$" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
-
-
-(setq auto-mode-alist
-      (append
-       (list
-        '("\\.rb\\'" . ruby-mode)
-        '("Rakefile" . ruby-mode)
-        )
-       auto-mode-alist))
-
-(add-hook 'ruby-mode-hook
-          #'(lambda ()
-              ;; Don't want flymake mode for ruby regions in rhtml files
-              (if (not (null buffer-file-name))
-                  (flymake-mode))
-              ))
-
-
-
 
 
 ;; EOF

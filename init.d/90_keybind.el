@@ -52,8 +52,8 @@ With argument ARG, do this that many times."
 ;; lookupの起動
 (global-set-key "\C-cl" #'lookup-pattern)
 
-
-
+;; flymakeのエラー表示
+(global-set-key "\C-cd" #'credmp/flymake-display-err-minibuf)
 
 
 ;; EOF

@@ -23,6 +23,8 @@
      (add-hook 'LaTeX-mode-hook
                #'(lambda ()
                    (setq skk-kutouten-type 'en)
+                   (hungry-mode t)
+                   ;; (flymake-mode 1)
                    ))
      ))
 
