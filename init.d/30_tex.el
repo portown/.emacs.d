@@ -24,7 +24,7 @@
                #'(lambda ()
                    (setq skk-kutouten-type 'en)
                    (hungry-mode t)
-                   ;; (flymake-mode 1)
+                   (flymake-mode 1)
                    ))
      ))
 
