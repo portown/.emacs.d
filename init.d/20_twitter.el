@@ -26,6 +26,9 @@
 ;; 更新間隔(秒)
 (setq twittering-timer-interval jiros-setting-twitter-interval)
 
+;; API残量を表示する
+(setq twittering-display-remaining t)
+
 ;; マスターパスワードを使用する
 (setq twittering-use-master-password t)
 
@@ -50,7 +53,8 @@
               (let ((n twittering-new-tweets-count)
                     (statuses twittering-new-tweets-statuses))
                 (start-process "twittering-notify" nil "notify-send"
-                               "-i" "/usr/share/pixmaps/gnome-emacs.png"
+                               "-i" (expand-file-name "~/.emacs.d/elisp/twittering-mode/misc/twitter-icon.svg")
+                               ;; "-t" "3000" ; expire time (milliseconds)
                                (format "New %d tweet%s"
                                        n (if (> n 1) "s" ""))
                                (let ((func (lambda (stat)
