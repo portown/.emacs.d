@@ -25,7 +25,7 @@
 (setq jiros-setting-font-string "VL ゴシック-9")
 
 (setq jiros-setting-frame-width 210)
-(setq jiros-setting-frame-height 59)
+(setq jiros-setting-frame-height 55)
 
 (setq jiros-setting-init-frame-alist-list
       `(((frame-alist . ((title . "Main")
