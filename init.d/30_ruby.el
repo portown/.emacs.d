@@ -6,6 +6,7 @@
 
 
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
+(require 'safe-flymake-mode)
 
 
 (setq auto-mode-alist
@@ -38,8 +39,7 @@
                    (hungry-mode t)
 
                    ;; flymakeさせる
-                   (if (not (null buffer-file-name))
-                       (flymake-mode 1))
+                   (safe-flymake-mode)
                    ))
 
      ;; 範囲コメントアウトをc-modeと同じキーに設定

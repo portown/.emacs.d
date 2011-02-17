@@ -6,14 +6,14 @@
 
 
 (autoload 'hungry-mode "hungry-mode" "Minor mode for hungry delete." t)
+(require 'safe-flymake-mode)
 
 
 ;; Emacs Lispのフック設定
 (add-hook 'emacs-lisp-mode-hook
           #'(lambda ()
               (hungry-mode t)
-              (if (not (null buffer-file-name))
-                  (flymake-mode 1))
+              ;; (safe-flymake-mode)
               (define-key emacs-lisp-mode-map "\C-c\C-c" #'comment-region)
               ))
 

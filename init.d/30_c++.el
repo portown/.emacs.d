@@ -6,6 +6,7 @@
 
 
 (require 'cc-mode)
+(require 'safe-flymake-mode)
 
 
 ;; スタイル作成
@@ -92,7 +93,7 @@
             (c-toggle-auto-newline 1)   ; 改行が自動挿入される
             (c-toggle-hungry-state 1)   ; 空白が一気に削除される
 
-            (flymake-mode 1)
+            (safe-flymake-mode)
             ))
 
 ;; 拡張子の関連付け
