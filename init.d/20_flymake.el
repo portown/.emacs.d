@@ -83,4 +83,12 @@
 (push '("\\.tex$" flymake-LaTeX-init) flymake-allowed-file-name-masks)
 (push '("^\\(\.+\.tex\\):\\([0-9]+\\):\\([0-9]+\\):\\(.+\\)" nil 2 3 4) flymake-err-line-patterns)
 
+
+;; shell script
+(def-flymake-file-init flymake-shell-init (file)
+  (list "/bin/bash" (list "-n" file)))
+
+(push '("\\.sh\\'" flymake-shell-init) flymake-allowed-file-name-masks)
+
+
 ;; EOF
