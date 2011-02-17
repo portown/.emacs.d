@@ -41,7 +41,7 @@
          )
         ))
 
-(setq jiros-setting-twitter-interval 40)
+(setq jiros-setting-twitter-interval 20)
 
 
 ;; EOF
