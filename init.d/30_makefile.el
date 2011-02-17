@@ -5,6 +5,9 @@
 ;;; Time:   '10/08/25
 
 
+(require 'safe-flymake-mode)
+
+
 ;; .makのファイルに関連付ける
 (setq auto-mode-alist
       (append
@@ -13,10 +16,11 @@
         '("Makefile" . makefile-mode))
        auto-mode-alist))
 
-;; ;; makefileのフック設定
-;; (add-hook 'makefile-mode-hook
-;;           #'(lambda ()
-;;               ))
+;; makefileのフック設定
+(add-hook 'makefile-mode-hook
+          #'(lambda ()
+              (safe-flymake-mode)
+              ))
 
 
 
