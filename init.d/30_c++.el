@@ -93,7 +93,10 @@
             (c-toggle-auto-newline 1)   ; 改行が自動挿入される
             (c-toggle-hungry-state 1)   ; 空白が一気に削除される
 
-            (safe-flymake-mode)
+            (hs-minor-mode 1)
+
+            (when (string-match "\\.[cC]\\([cC]\\|pp\\|xx\\)?\\'" buffer-file-name)
+              (safe-flymake-mode))
             ))
 
 ;; 拡張子の関連付け
