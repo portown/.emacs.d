@@ -42,14 +42,6 @@
      (setq gdb-restore-windows t)
      ))
 
-;; シェルの設定
-(eval-after-load "shell"
-  '(progn
-     (setq explicit-shell-file-name "bash")
-     (setq shell-file-name "bash")
-     (setq shell-command-switch "-c")
-     ))
-
 ;; スクロールバーを表示しない
 (set-scroll-bar-mode nil)
 
