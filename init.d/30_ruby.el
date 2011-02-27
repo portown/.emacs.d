@@ -46,19 +46,19 @@
      (define-key ruby-mode-map "\C-c\C-c" #'comment-region)
 
 
-     ;; ruby-electricの設定
+     ;; ;; ruby-electricの設定
 
-     (require 'ruby-electric)
+     ;; (require 'ruby-electric)
 
-     ;; 補完するものを文字で指定
-     ;; allを指定すると {, [, (, ', ", `, | の全てを補完
-     (setq ruby-electric-expand-delimiters-list nil)
+     ;; ;; 補完するものを文字で指定
+     ;; ;; allを指定すると {, [, (, ', ", `, | の全てを補完
+     ;; (setq ruby-electric-expand-delimiters-list nil)
 
-     ;; ruby-mode時にruby-electricを有効にする
-     (add-hook 'ruby-mode-hook
-               #'(lambda ()
-                   (ruby-electric-mode t)
-                   ))
+     ;; ;; ruby-mode時にruby-electricを有効にする
+     ;; (add-hook 'ruby-mode-hook
+     ;;           #'(lambda ()
+     ;;               (ruby-electric-mode t)
+     ;;               ))
 
 
      ;; ruby-blockの設定
