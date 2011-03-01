@@ -41,7 +41,11 @@
           eshell-visual-commands)))
 
 
-
+(defun eshell/clear ()
+  "Clear the current buffer, leaving one prompt at the top."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
 
 
 ;; EOF

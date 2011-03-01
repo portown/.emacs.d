@@ -21,10 +21,13 @@
 (setq twittering-status-format "%i %S(%s)  (%@):\n  %t\n  // via %f %L\n  %r%R")
 
 ;; ReTweetのフォーマットを指定
-(setq twittering-retweet-format "RT @%s: %t")
+(setq twittering-retweet-format "QT @%s: %t")
 
 ;; 更新間隔(秒)
 (setq twittering-timer-interval jiros-setting-twitter-interval)
+
+;; 公式RTをメインに使用する
+(setq twittering-use-native-retweet t)
 
 ;; API残量を表示する
 (setq twittering-display-remaining t)
@@ -39,8 +42,9 @@
               ;; アイコンを表示させる
               (twittering-icon-mode t)
 
-              ;; 公式RTをキーに割り当てる
-              (define-key twittering-mode-map "\C-cr" 'twittering-native-retweet)
+              ;; ;; 公式RTをキーに割り当てる
+              ;; (define-key twittering-mode-map "\C-cr" 'twittering-native-retweet)
+              ;; ↑C-u twittering-retweet でできる
 
               ;; ふぁぼり割り当て
               (define-key twittering-mode-map "\C-cf" 'twittering-favorite)

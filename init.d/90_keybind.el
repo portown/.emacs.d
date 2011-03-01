@@ -36,6 +36,9 @@ With argument ARG, do this that many times."
                   (interactive)
                   (set-frame-selected-window nil (next-window))))
 
+;; shell-command-on-region を自動化
+(global-set-key "\M-!" #'shell-command-dwim)
+
 ;; SKK
 (global-set-key "\C-\\" #'skk-mode)
 
