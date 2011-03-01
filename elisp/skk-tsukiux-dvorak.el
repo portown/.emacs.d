@@ -105,6 +105,7 @@
         ("@" nil skk-today)
         ("$" nil skk-display-code-for-char-at-point)
         ("/" nil skk-toggle-kana)
+        ("e/" nil skk-abbrev-mode)
         ("?" nil skk-jisx0201-mode)
         ("`" nil skk-purge-from-jisyo)
         ("e[" nil "「")
