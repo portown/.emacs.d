@@ -8,4 +8,9 @@
 SUBDIRS = .%
 
 
+.PHONY: check-syntax
+check-syntax:
+	$(CXXCOMPILE) $(_CXXFLAGS) -Wno-error -fsyntax-only $(CHK_SOURCES)
+
+
 # EOF

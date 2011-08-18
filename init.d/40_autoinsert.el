@@ -6,7 +6,7 @@
 
 
 (require 'autoinsert)
-(require 'cl)
+;; (require 'cl)
 
 (require 'uuid)
 
@@ -19,15 +19,19 @@
 
 ;; テンプレート変数の置換リスト
 (defvar jiros-template-var-alist
-  `(("file" . ,(lambda () (file-name-nondirectory (buffer-file-name))))
-    ("user" . user-full-name)
-    ("year" . ,(lambda () (substring (current-time-string) -4)))
-    ("time" . ,(lambda () (format-time-string "'%02y/%02m/%02d" (current-time))))
-    ;; ("%license%" . (lambda () "GPL"))
-    ("uuid" . ,(lambda () (upcase (replace-regexp-in-string "-" "_" (uuid)))))
-    ("reg-file" . ,(lambda () (upcase (replace-regexp-in-string "[-. ]" "_"
-                                                                (file-name-nondirectory (buffer-file-name))))))
-    ))
+  (list
+   (cons "file" (lambda () (file-name-nondirectory (buffer-file-name))))
+   (cons "user" user-full-name)
+   (cons "year" (lambda () (substring (current-time-string) -4)))
+   (cons "time" (lambda () (format-time-string "'%02y/%02m/%02d" (current-time))))
+   ;; (cons "%license%" (lambda () "GPL"))
+   (cons "uuid" (lambda () (upcase (replace-regexp-in-string "-" "_" (uuid)))))
+   (cons "reg-file" (lambda ()
+                      (upcase
+                       (replace-regexp-in-string
+                        "[-. ]" "_"
+                        (file-name-nondirectory (buffer-file-name))))))
+   ))
 
 ;; テンプレート変数の置換
 (defun jiros-replace-template-var ()
@@ -82,8 +86,10 @@
         (("\\.h\\'" . "C header")                      . ,(jiros-template-name "h"))
         (("\\.\\(cpp\\|cxx\\|cc\\)\\'" . "C++ source") . ,(jiros-template-name "cpp"))
         (("\\.\\(hpp\\|hxx\\|hh\\)\\'" . "C++ header") . ,(jiros-template-name "hpp"))
+        (("\\.\\(cs\\)\\'" . "C# source")              . ,(jiros-template-name "cs"))
         (("\\.l\\'" . "lex source")                    . ,(jiros-template-name "l"))
         (("\\.y\\'" . "yacc source")                   . ,(jiros-template-name "y"))
+        (("\\.awk\\'" . "awk source")                  . ,(jiros-template-name "awk"))
         (("\\.ml[ily]?\\'" . "OCaml file")             . ,(jiros-template-name "ml"))
         (("\\.mak\\|Makefile\\.in")                    . ,(jiros-template-name "mak"))
         (("\\.am\\'" . "Automake File")                . ,(jiros-template-name "am"))
@@ -102,6 +108,7 @@
         (("Rakefile" . "Rake source")                  . ,(jiros-template-name "rb"))
         (("\\.js\\'" . "Javascript source")            . ,(jiros-template-name "js"))
         (("\\.json\\'" . "JSON file")                  . ,(jiros-template-name "js"))
+        (("\\.gp\\'" . "Gnuplot batch file")           . ,(jiros-template-name "gp"))
         ))
 
 

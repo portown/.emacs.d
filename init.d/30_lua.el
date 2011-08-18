@@ -5,25 +5,24 @@
 ;;; Time:   '10/08/25
 
 
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(require 'lua-mode)
 
 
-(eval-after-load "lua-mode"
-  '(progn
-     (define-key lua-mode-map "\C-m" 'reindent-then-newline-and-indent)
-     (define-key lua-mode-map "\C-c\C-c" 'comment-region)
+(setq lua-indent-level 2)
 
-     (setq lua-indent-level 2)
-
-     (add-hook 'lua-mode-hook
-               #'(lambda ()
-                   ))
-     ))
+(add-hook 'lua-mode-hook
+          (lambda ()
+            (define-key lua-mode-map "\C-m" #'reindent-then-newline-and-indent)
+            (define-key lua-mode-map "\C-c\C-c" #'comment-region)
+            ))
 
 
-(setq auto-mode-alist (append (list
-                               '("\\.lua$" . lua-mode))
-                              auto-mode-alist))
+(setq auto-mode-alist
+      (append
+       (list
+        (cons "\\.lua'" 'lua-mode)
+        )
+       auto-mode-alist))
 
 
 ;; EOF

@@ -25,10 +25,14 @@
 (setq auto-mode-alist
       (append
        (list
-        '("\\.org\\'" . org-mode)
+        ;; '("\\.org\\'" . org-mode)
         '("TODO" . org-mode)
         )
        auto-mode-alist))
+
+
+;; 設定ファイルの読み込み
+(load "~/.emacs.d/settings/org.el")
 
 
 ;; EOF

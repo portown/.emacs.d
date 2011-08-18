@@ -578,7 +578,8 @@ The argument USER-HANDLE can be `skype-user' object."
                            gid))
                     groups)))
           (if friend-group
-              (skype--get-group-users friend-group))))))
+              (skype--split (substring (skype--com "SEARCH FRIENDS") 6)))))))
+              ;; (skype--get-group-users friend-group))))))
 
 ;;; User actions
 
@@ -1684,9 +1685,11 @@ update the mode line."
   "Open a buffer for all contact users."
   (interactive)
   (let* ((buf (skype--open-all-users-buffer))
-         (msg-window (or (get-buffer-window buf)
-                         (get-buffer-window (current-buffer)))))
-    (pop-to-buffer buf msg-window)))
+    ;;      (msg-window (or (get-buffer-window buf)
+    ;;                      (get-buffer-window (current-buffer)))))
+    ;; (pop-to-buffer buf msg-window)))
+         )
+    (set-window-buffer nil buf)))
 
 (defun skype--open-all-users-buffer ()
   "Return a buffer for all contact users"

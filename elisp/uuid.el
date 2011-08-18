@@ -33,8 +33,9 @@ process. Attempts to get rid of the buffer afterwards."
   (let* ((bufname (or bufname "*call-process-get-output*"))
          (buf (get-buffer-create bufname))
          output prepoint)
-    (save-excursion
-      (set-buffer buf)
+    ;; (save-excursion
+    ;;   (set-buffer buf)
+    (with-current-buffer buf
       (setq prepoint (point))
       (apply
        'call-process (append (list program infile bufname) args))

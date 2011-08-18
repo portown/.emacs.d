@@ -27,27 +27,27 @@
 (modify-syntax-entry ?' "\"" nasm-mode-syntax-table)
 
 
-(setq nasm-font-lock-keywords
-      (list
-       '("^\\(\\w+\\):"                  (1 font-lock-function-name-face))
-       '("^\\(\\w+:\\)?[ \t]+\\(\\w+\\)" (2 font-lock-keyword-face t))
-       '("\\<\\(times\\)[ \t]+[^ \t\n]+[ \t]+\\(\\w+\\)\\>"
-         (1 font-lock-keyword-face t)
-         (2 font-lock-keyword-face t))
-       '(";.*$"                          . font-lock-comment-face)
-       '("\\<[abcd]h\\>"                 . font-lock-variable-name-face)
-       '("\\<[abcd]l\\>"                 . font-lock-variable-name-face)
-       '("\\<e?[abcd]x\\>"               . font-lock-variable-name-face)
-       '("\\<[cdefg]s\\>"                . font-lock-variable-name-face)
-       '("\\<[ds]i\\>"                   . font-lock-variable-name-face)
-       '("\\<[bs]p\\>"                   . font-lock-variable-name-face)
-       '("\\<[cdefg]s\\>"                . font-lock-variable-name-face)
-       '("\\<edi\\>"                     . font-lock-variable-name-face)
-       '("\\<\\(byte\\|d?word\\)\\>"     . font-lock-type-face)
-       '("^\\(\\w+\\)[ \t]+\\(db\\|equ\\)\\>"
-         (1 font-lock-variable-name-face t)
-         (2 font-lock-keyword-face t))
-       ))
+(defconst nasm-font-lock-keywords
+  (list
+   '("^\\(\\w+\\):"                  (1 font-lock-function-name-face))
+   '("^\\(\\w+:\\)?[ \t]+\\(\\w+\\)" (2 font-lock-keyword-face t))
+   '("\\<\\(times\\)[ \t]+[^ \t\n]+[ \t]+\\(\\w+\\)\\>"
+     (1 font-lock-keyword-face t)
+     (2 font-lock-keyword-face t))
+   '(";.*$"                          . font-lock-comment-face)
+   '("\\<[abcd]h\\>"                 . font-lock-variable-name-face)
+   '("\\<[abcd]l\\>"                 . font-lock-variable-name-face)
+   '("\\<e?[abcd]x\\>"               . font-lock-variable-name-face)
+   '("\\<[cdefg]s\\>"                . font-lock-variable-name-face)
+   '("\\<[ds]i\\>"                   . font-lock-variable-name-face)
+   '("\\<[bs]p\\>"                   . font-lock-variable-name-face)
+   '("\\<[cdefg]s\\>"                . font-lock-variable-name-face)
+   '("\\<edi\\>"                     . font-lock-variable-name-face)
+   '("\\<\\(byte\\|d?word\\)\\>"     . font-lock-type-face)
+   '("^\\(\\w+\\)[ \t]+\\(db\\|equ\\)\\>"
+     (1 font-lock-variable-name-face t)
+     (2 font-lock-keyword-face t))
+   ))
 
 ;; (put 'nasm-mode 'font-lock-defaults
 ;;      '((nasm-font-lock-keywords) nil nil nil nil))

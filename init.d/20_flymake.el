@@ -35,66 +35,75 @@
 
 
 ;; 一時ファイルを用いる場合の雛形マクロ
-(defmacro def-flymake-file-init (funcname args &rest body)
-  `(defun ,funcname ()
-     (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                        'flymake-create-temp-inplace))
-            (,(car args) (file-relative-name
-                          temp-file
-                          (file-name-directory buffer-file-name))))
-       ,@body)))
+(defun jiros-flymake-file-init (cmd &optional opts)
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    (list cmd (append opts (list local-file)))))
+
+
+;; Makefileがあれば使い、なければ一時ファイルを使う
+(defun jiros-flymake-make-or-file-init (cmd &optional opts)
+  (if (file-exists-p "Makefile")
+      (flymake-simple-make-init)
+    (jiros-flymake-file-init cmd opts)))
+
+
+;; Ruby設定
+(defun flymake-ruby-init ()
+  (jiros-flymake-file-init "ruby" '("-c")))
+
+(push '("\\.rb\\'" flymake-ruby-init) flymake-allowed-file-name-masks)
+(push '("Rakefile\\'" flymake-ruby-init) flymake-allowed-file-name-masks)
+;; (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
 
 ;; C設定
-(def-flymake-file-init flymake-c-init (file)
-  (list "gcc" (list "-std=c99" "-Wall" "-Wextra" "-pedantic" "-fsyntax-only" file)))
+(defun flymake-c-init ()
+  (jiros-flymake-make-or-file-init
+   "gcc" '("-std=c99" "-Wall" "-Wextra" "-pedantic" "-fsyntax-only")))
 
 (push '("\\.[cC]\\'" flymake-c-init) flymake-allowed-file-name-masks)
 
 
 ;; C++設定
-(def-flymake-file-init flymake-c++-init (file)
-  (list "g++" (list "-std=c++0x" "-Wall" "-Wextra" "-pedantic" "-fsyntax-only" file)))
+(defun flymake-c++-init ()
+  (jiros-flymake-make-or-file-init
+   "g++" '("-std=c++0x" "-Wall" "-Wextra" "-pedantic" "-fsyntax-only")))
 
 (push '("\\.c\\(pp\\|xx\\|c\\)\\'" flymake-c++-init)
       flymake-allowed-file-name-masks)
-
-
-;; Ruby設定
-(def-flymake-file-init flymake-ruby-init (file)
-  (list "ruby" (list "-c" file)))
-
-(push '("\\.rb\\'" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("Rakefile\\'" flymake-ruby-init) flymake-allowed-file-name-masks)
-(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
+(push '("^\\([^:]*\\):\\([0-9]+\\):\\([0-9]+\\) \\(error\\|warning\\): \\(.*\\)$" 1 2 3 5) flymake-err-line-patterns)
 
 
 ;; Emacs Lisp
-(def-flymake-file-init flymake-elisp-init (file)
-  (list "elisplint" (list file)))
+(defun flymake-elisp-init ()
+  (jiros-flymake-file-init "elisplint"))
 
 (push '("\\.el\\'" flymake-elisp-init) flymake-allowed-file-name-masks)
 
 
 ;; LaTeX
-(def-flymake-file-init flymake-LaTeX-init (file)
-  (list "chktex-jp" (list file)))
+(defun flymake-LaTeX-init ()
+  (jiros-flymake-file-init "chktex-jp"))
 
 (push '("\\.tex$" flymake-LaTeX-init) flymake-allowed-file-name-masks)
 (push '("^\\(\.+\.tex\\):\\([0-9]+\\):\\([0-9]+\\):\\(.+\\)" nil 2 3 4) flymake-err-line-patterns)
 
 
 ;; Makefile
-(def-flymake-file-init flymake-makefile-init (file)
-  (list "make" (list "-n" "-s" file)))
+(defun flymake-makefile-init ()
+  (jiros-flymake-file-init "make" '("-n" "-s")))
 
 (push '("Makefile\\'" flymake-makefile-init) flymake-allowed-file-name-masks)
 (push '("\\.mak\\'" flymake-makefile-init) flymake-allowed-file-name-masks)
 
 
 ;; shell script
-(def-flymake-file-init flymake-shell-init (file)
-  (list "/bin/bash" (list "-n" file)))
+(defun flymake-shell-init ()
+  (jiros-flymake-file-init "/bin/bash" '("-n")))
 
 (push '("\\.sh\\'" flymake-shell-init) flymake-allowed-file-name-masks)
 

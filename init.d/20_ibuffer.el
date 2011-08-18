@@ -17,11 +17,12 @@
 
 ;;; フォーマットの設定
 (setq ibuffer-formats
-      '((mark modified read-only (coding 15 15) " " (name 30 30) " " (size 6 -1 ) " " (mode 16 16) " " filename)
-        (mark (coding 15 15) " " (name 30 -1) " " filename)))
+      (list
+       '(mark modified read-only (coding 15 15) " " (name 30 30) " " (size 6 -1 ) " " (mode 16 16) " " filename)
+       '(mark (coding 15 15) " " (name 30 -1) " " filename)))
 
 ;;; 既存のバッファリストを置き換える
-(global-set-key "\C-x\C-b" 'ibuffer)
+(global-set-key "\C-x\C-b" #'ibuffer)
 
 
 

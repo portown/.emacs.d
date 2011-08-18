@@ -11,4 +11,8 @@
 (setq skype--my-user-handle "portown")
 
 
+(set-face-foreground 'skype--face-user-field "Black")
+(set-face-foreground 'skype--face-optional-field "dark sea green")
+
+
 ;; EOF

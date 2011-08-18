@@ -5,6 +5,7 @@
 ;;; Time:   '10/10/30
 
 
+(load-file "/usr/local/share/emacs/site-lisp/tramp-sh.elc")
 (require 'tramp)
 
 

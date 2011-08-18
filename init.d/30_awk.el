@@ -8,12 +8,12 @@
 (autoload 'awk-mode "cc-mode" nil t)
 
 
-;; 関連付け
-(setq auto-mode-alist
-      (append
-       (list
-        '("\\.awk\\'" awk-mode))
-       auto-mode-alist))
+;; ;; 関連付け
+;; (setq auto-mode-alist
+;;       (append
+;;        (list
+;;         '("\\.awk\\'" awk-mode))
+;;        auto-mode-alist))
 
 ;; ;; フック設定
 ;; (add-hook 'awk-mode-hook

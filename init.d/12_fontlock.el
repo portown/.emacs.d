@@ -9,24 +9,42 @@
 ;; 特殊文字の色付け
 ;; -------------------------------------------------------------
 
-;;(defface my-face-r-1 '((t (:background "gray15"))) nil)
-(defface my-face-b-1 '((t (:background "gray"))) nil)
-(defface my-face-b-2 '((t (:background "gray26"))) nil)
-(defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
-;;(defvar my-face-r-1 'my-face-r-1)
-(defvar my-face-b-1 'my-face-b-1)
-(defvar my-face-b-2 'my-face-b-2)
-(defvar my-face-u-1 'my-face-u-1)
+(defgroup jiros-customfont nil
+  "jiros custom font"
+  :group 'faces)
 
-(defadvice font-lock-mode (before my-font-lock-mode ())
+;; 全角スペースに適用する face
+(defface jiros-customfont-widespace-face
+  '((t (:background "gray"))
+    )
+  "for wide space"
+  :group 'jiros-customfont)
+(defvar jiros-customfont-widespace-face 'jiros-customfont-widespace-face)
+
+;; タブに適用する face
+(defface jiros-customfont-tab-face
+  '((t (:background "gray26"))
+    )
+  "for tab"
+  :group 'jiros-customfont)
+(defvar jiros-customfont-tab-face 'jiros-customfont-tab-face)
+
+
+(defface jiros-customfont-trail-face
+  '((t (:foreground "SteelBlue" :underline t))
+    )
+  "for trailing whitespace"
+  :group 'jiros-customfont)
+(defvar jiros-customfont-trail-face 'jiros-customfont-trail-face)
+
+(defadvice font-lock-mode (before jiros-customfont-lock-mode ())
   (font-lock-add-keywords
    major-mode
-   '(("\t" 0 my-face-b-2 append)
-     ("　" 0 my-face-b-1 append)
-     ("[ \t]+$" 0 my-face-u-1 append)
-     ;;("[\r]*\n" 0 my-face-r-1 append)
+   '(("\t" 0 jiros-customfont-tab-face append)
+     ("　" 0 jiros-customfont-widespace-face append)
+     ("[ \t]+$" 0 jiros-customfont-trail-face append)
      )))
-(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
+(ad-enable-advice 'font-lock-mode 'before 'jiros-customfont-lock-mode)
 (ad-activate 'font-lock-mode)
 
 

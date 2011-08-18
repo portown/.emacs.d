@@ -18,19 +18,21 @@
 
 ;; ファイルごとにデフォルトコマンドを設定する
 (setq dired-guess-shell-alist-user
-      '(("\\.tar\\.gz\\'" "tar -xzf")
-        ("\\.tar\\.bz2\\'" "tar -xjf")
-        ("\\.tar\\.lzma\\'" "tar --lzma -xf")
-        ("\\.zip\\'" "unzip -q")
-        ("\\.lzh\\'" "lha -xq")
-        ))
+      (list
+       (list "\\.tar\\.gz\\'" "tar -xzf")
+       (list "\\.tar\\.bz2\\'" "tar -xjf")
+       (list "\\.tar\\.lzma\\'" "tar --lzma -xf")
+       (list "\\.zip\\'" "unzip -q")
+       (list "\\.lzh\\'" "lha -xq")
+       (list "\\.pdf\\'" "evince")
+       ))
 
 ;; キー設定
 (add-hook 'dired-mode-hook
-          #'(lambda ()
-              ;; dired バッファを直接編集する
-              (define-key dired-mode-map "\C-cr" 'wdired-change-to-wdired-mode)
-              ))
+          (lambda ()
+            ;; dired バッファを直接編集する
+            (define-key dired-mode-map "\C-cr" #'wdired-change-to-wdired-mode)
+            ))
 
 
 ;; -----------------------------------------------------------------------------

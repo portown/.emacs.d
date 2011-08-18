@@ -71,7 +71,7 @@ If error, return a cons cell (ERRCODE . DESCRIPTION)."
   (let (connection server port path buf str len)
     (string-match "^http://\\([^/:]+\\)\\(:\\([0-9]+\\)\\)?\\(/.*$\\)" url)
     (setq server (match-string 1 url)
-          port (string-to-int (or (match-string 3 url) "80"))
+          port (string-to-number (or (match-string 3 url) "80"))
           path (if http-proxy-server url (match-string 4 url)))
     (setq str (mapconcat
                '(lambda (x)

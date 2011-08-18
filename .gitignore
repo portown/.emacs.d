@@ -1,3 +1,5 @@
 /session.*
 /tramp
 *.elc
+/.org-id-locations
+/abbrev_defs

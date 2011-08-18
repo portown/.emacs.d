@@ -12,27 +12,26 @@
 (when (boundp 'window-system)
   ;; デフォルトフレームの設定
   (setq default-frame-alist
-        (append `(
-                  (font . ,jiros-setting-font-string)
-                  (foreground-color . "azure3")
-                  (background-color . "black")
-                  (mouse-color . "white")
-                  (cursor-color . "white")
-                  (width . ,(or jiros-setting-frame-width (frame-width)))
-                  (height . ,(or jiros-setting-frame-height (frame-height)))
-                  (top . 0)
-                  (left . 0)
-                  (title . "Emacs")
-                  (frame-cursor-color . "white")
-                  )
-                default-frame-alist))
+        (append
+         `((font . ,jiros-setting-font-string)
+           (foreground-color . "azure3")
+           (background-color . "black")
+           (mouse-color . "white")
+           (cursor-color . "white")
+           (width . ,(or jiros-setting-frame-width (frame-width)))
+           (height . ,(or jiros-setting-frame-height (frame-height)))
+           (top . 0)
+           (left . 0)
+           (title . "Emacs")
+           (frame-cursor-color . "white")
+           )
+         default-frame-alist))
 
   ;; 初期フレームの設定
   (setq initial-frame-alist
         (append
-         (list
-          '(title . "Initial")
-          )
+         '((title . "Initial")
+           )
          default-frame-alist))
 
   ;; ツールバーとメニューバーは消しておく

@@ -11,7 +11,7 @@
 (setq auto-mode-alist
       (append
        (list
-        '("\\.y\\'" . bison-mode))
+        (cons "\\.y\\'" 'bison-mode))
        auto-mode-alist))
 
 

@@ -6,6 +6,7 @@
 
 
 (require 'cc-mode)
+(require 'parenthesis)
 (require 'safe-flymake-mode)
 
 
@@ -93,6 +94,13 @@
             (c-toggle-auto-newline 1)   ; 改行が自動挿入される
             (c-toggle-hungry-state 1)   ; 空白が一気に削除される
 
+            ;; 括弧の補完
+            (define-key c-mode-map "{" #'parenthesis-insert-braces)
+            (define-key c-mode-map "(" #'parenthesis-insert-parens2)
+            (define-key c-mode-map "[" #'parenthesis-insert-brackets)
+            (define-key c-mode-map "\'" #'parenthesis-insert-single-quotation)
+            (define-key c-mode-map "\"" #'parenthesis-insert-double-quotation)
+
             (hs-minor-mode 1)
 
             (when (string-match "\\.[cC]\\([cC]\\|pp\\|xx\\)?\\'" buffer-file-name)
@@ -103,8 +111,8 @@
 (setq auto-mode-alist
       (append
        (list
-        '("\\.cxx\\'" . c++-mode)
-        '("\\.hxx\\'" . c++-mode))
+        (cons "\\.cxx\\'" 'c++-mode)
+        (cons "\\.hxx\\'" 'c++-mode))
        auto-mode-alist))
 
 

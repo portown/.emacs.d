@@ -22,6 +22,7 @@
   '(progn
      (add-hook 'LaTeX-mode-hook
                #'(lambda ()
+                   (require 'skk)
                    (setq skk-kutouten-type 'en)
                    (hungry-mode t)
                    (flymake-mode 1)
@@ -31,9 +32,9 @@
 
 (setq auto-mode-alist
       (append
-       '(
-         ("\\.tex\\'" . japanese-latex-mode)
-         )
+       (list
+        (cons "\\.tex\\'" 'japanese-latex-mode)
+        )
        auto-mode-alist))
 
 

@@ -550,7 +550,10 @@ single-line comment paragraph starts."
   "Return the column at the start of the current single-line
 comment paragraph."
   (save-excursion 
-    (goto-line line)
+    ;; (goto-line line)
+    (goto-char (point-min))
+    (forward-line (1- line))
+
     (re-search-forward "//" (point-at-eol))
     (goto-char (match-beginning 0))
     (current-column)))
@@ -560,7 +563,10 @@ comment paragraph."
   "Return the column at the start of the text of the current
 single-line comment paragraph."
   (save-excursion
-    (goto-line line)
+    ;; (goto-line line)
+    (goto-char (point-min))
+    (forward-line (1- line))
+
     (re-search-forward "//[ \t]*" (point-at-eol))
     (current-column)))
 
