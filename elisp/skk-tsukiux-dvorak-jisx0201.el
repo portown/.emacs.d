@@ -1,4 +1,4 @@
-;;; skk-tsuxiux-dvorak-jisx0201.el
+;;; skk-tsukiux-dvorak-jisx0201.el
 ;;; Copyright (C) 2011 YASUDA Jiro
 
 ;;; Author: YASUDA Jiro
