@@ -7,6 +7,7 @@
 
 (autoload 'javascript-mode "javascript" nil t)
 (autoload 'js2-mode "js2" nil t)
+(require 'hungry-mode)
 
 
 (eval-after-load "js2"
@@ -48,6 +49,7 @@
                (lambda ()
                  ;; 参考：http://8-p.info/emacs-javascript.html
                  (define-key js2-mode-map "\C-i" #'jiros-indent-and-back-to-indentation)
+                 (hungry-mode t)
                  ))
 
 
