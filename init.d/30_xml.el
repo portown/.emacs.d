@@ -12,6 +12,7 @@
 (setq auto-mode-alist
       (append
        (list
+        '("\\.html\\'" . nxml-mode)
         '("\\.php\\'" . nxml-mode)
         )
         auto-mode-alist))
