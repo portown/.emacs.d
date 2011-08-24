@@ -107,6 +107,7 @@
         (("\\.tex\\'" . "TeX file")                    . ,(jiros-template-name "tex"))
         (("\\.rb\\'" . "Ruby source")                  . ,(jiros-template-name "rb"))
         (("Rakefile" . "Rake source")                  . ,(jiros-template-name "rb"))
+        (("\\.css\\'" . "Cascading Style Sheets")      . ,(jiros-template-name "css"))
         (("\\.js\\'" . "Javascript source")            . ,(jiros-template-name "js"))
         (("\\.json\\'" . "JSON file")                  . ,(jiros-template-name "js"))
         (("\\.gp\\'" . "Gnuplot batch file")           . ,(jiros-template-name "gp"))
