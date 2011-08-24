@@ -100,6 +100,7 @@
         (("\\.lua\\'" . "Lua source")                  . ,(jiros-template-name "lua"))
         (("\\.java\\'" . "Java source")                . ,(jiros-template-name "java"))
         (("\\.scala\\'" . "Scala source")              . ,(jiros-template-name "scala"))
+        (("\\.html\\'" . "HTML source")                . ,(jiros-template-name "xml"))
         (("\\.xml\\'" . "XML source")                  . ,(jiros-template-name "xml"))
         (("\\.rnc\\'" . "RELAX NG file")               . ,(jiros-template-name "rnc"))
         (("\\.el\\'" . "Emacs Lisp source")            . ,(jiros-template-name "el"))
