@@ -58,5 +58,8 @@ With argument ARG, do this that many times."
 ;; flymakeのエラー表示
 (global-set-key "\C-cd" #'credmp/flymake-display-err-minibuf)
 
+;; hideshow のトグル
+(global-set-key "\C-ct" #'hs-toggle-hiding)
+
 
 ;; EOF
