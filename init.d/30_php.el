@@ -8,4 +8,12 @@
 (require 'php-mode)
 
 
+(define-key php-mode-map [?\C-.] nil)
+
+
+(add-hook 'php-mode-hook
+          (lambda ()
+            ))
+
+
 ;; EOF

@@ -51,6 +51,7 @@
 (setq mmm-submode-decoration-level 1)
 
 ;; decoration-level: 1 のときに使用されるface
+(set-face-foreground 'mmm-default-submode-face nil)
 (set-face-background 'mmm-default-submode-face "gray15")
 
 
