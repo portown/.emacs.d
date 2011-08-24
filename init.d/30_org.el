@@ -10,14 +10,12 @@
 
 (eval-after-load "org"
   '(progn
-     ;; フック
-     (add-hook 'org-mode-hook
-               #'(lambda ()
-                   (define-key org-mode-map [?\C-,]
-                     #'(lambda ()
-                         (interactive)
-                         (set-frame-selected-window nil (previous-window))))
-                   ))
+     (define-key org-mode-map [?\C-,] nil)
+
+     ;; ;; フック
+     ;; (add-hook 'org-mode-hook
+     ;;           (lambda ()
+     ;;             ))
      ))
 
 

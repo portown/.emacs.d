@@ -6,6 +6,7 @@
 
 
 (autoload 'd-mode "d-mode" "Major mode for editing D code." t)
+(require 'hungry-mode)
 
 
 (setq auto-mode-alist
@@ -18,7 +19,6 @@
 
 (add-hook 'd-mode-hook
           (lambda ()
-            (require 'hungry-mode)
             (hungry-mode t)
             ))
 
