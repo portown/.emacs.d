@@ -13,7 +13,7 @@
       (append
        (list
         '("\\.html\\'" . nxml-mode)
-        '("\\.php\\'" . nxml-mode)
+        '("\\.tpl\\'" . nxml-mode)
         )
         auto-mode-alist))
 

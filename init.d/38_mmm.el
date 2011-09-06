@@ -72,7 +72,6 @@
 ;; MODEとEXTENSIONはnilを指定するとワイルドカード
 
 (mmm-add-mode-ext-class nil "\\.s?html?\\'" 'embedded-css) ; mmm-mode付属。CSS in HTML
-(mmm-add-mode-ext-class nil "\\.php?\\'" 'html-php)        ; mmm-mode付属。PHP in HTML
 (mmm-add-mode-ext-class nil "\\.s?html?\\'" 'html-js)      ; mmm-mode付属。Javascript in HTML
 
 
